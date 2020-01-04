@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
     // edit below
-    title: `Gatsby Starter Personal Blog`,
-    author: `Kyle Matthews`,
-    description: `A starter personal blog with styled components, dark mode, and Netlify CMS.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    title: `Nvi Mai Portfolio`,
+    author: `Nvi Mai`,
+    description: `My personal portfolio website build on Gatsby ReactJS and Netlify.`,
+    siteUrl: `https://nvimai.netlify.com/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `nvimai`,
     },
   },
   plugins: [
@@ -22,6 +22,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/blog`,
         name: `blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/projects`,
+        name: `projects`,
       },
     },
     {
@@ -70,8 +77,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Nvi Mai Portfolio`,
+        short_name: `NviMaiPortfolio`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
