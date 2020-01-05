@@ -4,8 +4,8 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
-  const projectPost = path.resolve(`./src/templates/project-post.js`)
+  const blogPost = path.resolve(`./src/templates/blog-post.jsx`)
+  const projectPost = path.resolve(`./src/templates/project-post.jsx`)
   return graphql(
     `
       {
@@ -38,7 +38,7 @@ exports.createPages = ({ graphql, actions }) => {
     posts.forEach((post, index) => {
       // const previous = index === posts.length - 1 ? null : posts[index + 1].node
       // const next = index === 0 ? null : posts[index - 1].node
-      if (post.node.frontmatter.categories.includes('projects')) {
+      if (post.node.frontmatter.categories && post.node.frontmatter.categories.includes('projects')) {
         createPage({
           path: `projects${post.node.fields.slug}`,
           component: projectPost,
