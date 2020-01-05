@@ -15,6 +15,13 @@ class IndexPage extends React.Component {
           title="Home"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
+
+        <Link to="/blog/">
+          <Button marginTop="35px">Go to Blog</Button>
+        </Link>
+        <Link to="/projects/">
+          <Button marginTop="35px">Go to Projects</Button>
+        </Link>
         <img style={{ margin: 0 }} src="./GatsbyScene.svg" alt="Gatsby Scene" />
         <h1>
           Hey people{" "}
@@ -28,12 +35,6 @@ class IndexPage extends React.Component {
           default starter blog running on Netlify CMS.
         </p>
         <p>Now go build something great!</p>
-        <Link to="/blog/">
-          <Button marginTop="35px">Go to Blog</Button>
-        </Link>
-        <Link to="/projects/">
-          <Button marginTop="35px">Go to Projects</Button>
-        </Link>
       </Layout>
     )
   }

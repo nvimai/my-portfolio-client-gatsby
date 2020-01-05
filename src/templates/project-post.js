@@ -48,7 +48,7 @@ class ProjectPostTemplate extends React.Component {
         />
         <Bio />
 
-        <ul
+        {/* <ul
           style={{
             display: `flex`,
             flexWrap: `wrap`,
@@ -71,7 +71,7 @@ class ProjectPostTemplate extends React.Component {
               </Link>
             )}
           </li>
-        </ul>
+        </ul> */}
       </Layout>
     )
   }

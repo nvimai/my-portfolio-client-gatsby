@@ -2,7 +2,7 @@
 title: Hello World 2
 startdate: "2015-05-01T22:12:03.284Z"
 enddate: "2015-05-02T22:12:03.284Z"
-categories: "projects"
+categories: ["projects", "education"]
 ---
 
 This is my first post on my new fake blog! How exciting!

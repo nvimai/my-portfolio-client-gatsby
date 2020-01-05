@@ -7,6 +7,8 @@ module.exports = {
     siteUrl: `https://nvimai.netlify.com/`,
     social: {
       twitter: `nvimai`,
+      github: `nvimai`,
+      linkedin: `nhatmai`
     },
   },
   plugins: [
@@ -84,7 +86,7 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         // edit below
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/logo-nuniversal.svg`,
       },
     },
     {

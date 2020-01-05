@@ -6,7 +6,7 @@
  */
 
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql, Link } from "gatsby"
 import Image from "gatsby-image"
 import styled from "styled-components"
 
@@ -34,13 +34,33 @@ function Bio() {
               }}
             />
             <p>
-              Written by <strong>{author}</strong> who lives and works in San
-              Francisco building useful things.
-              {` `}
-              <a href={`https://twitter.com/${social.twitter}`}>
-                You should follow him on Twitter
-              </a>
+              Written by <strong>{author}</strong> who lives and works in Ontario, Canada building Websites/Applications.
             </p>
+            <ul
+              style={{
+                display: `flex`,
+                flexWrap: `wrap`,
+                justifyContent: `space-around`,
+                listStyle: `none`,
+                padding: 0,
+              }}
+            >
+              <li>
+                <a href={`https://twitter.com/${social.twitter}`}>
+                  Twitter
+                </a>
+              </li>
+              <li>
+                <a href={`https://github.com/${social.github}`}>
+                  GitHub
+                </a>
+              </li>
+              <li>
+                <a href={`https://www.linkedin.com/in/${social.linkedin}`}>
+                  LinkedIn
+                </a>
+              </li>
+            </ul>
           </Container>
         )
       }}
@@ -50,7 +70,7 @@ function Bio() {
 
 const bioQuery = graphql`
   query BioQuery {
-    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+    avatar: file(absolutePath: { regex: "/nhat-profile.jpg/" }) {
       childImageSharp {
         fixed(width: 50, height: 50) {
           ...GatsbyImageSharpFixed
