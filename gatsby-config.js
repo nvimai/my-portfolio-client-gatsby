@@ -3,17 +3,21 @@ module.exports = {
     // edit below
     title: `Nvi Mai Portfolio`,
     author: `Nvi Mai`,
+    bio: `My name is Nvi, which is Nhat Vietnam ^.^`,
     description: `My personal portfolio website build on Gatsby ReactJS and Netlify.`,
     siteUrl: `https://nvimai.netlify.com/`,
     social: {
       twitter: `nvimai`,
       github: `nvimai`,
-      linkedin: `nhatmai`
+      linkedin: `nhatmai`,
+      instagram: `nvimai`,
+      email: `contact@nvimai.com`
     },
   },
   plugins: [
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-offline`,
@@ -83,7 +87,7 @@ module.exports = {
         short_name: `NviMaiPortfolio`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#343a40`,
         display: `minimal-ui`,
         // edit below
         icon: `content/assets/logo-nuniversal.svg`,

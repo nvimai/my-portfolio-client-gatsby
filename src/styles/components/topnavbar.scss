@@ -1,0 +1,24 @@
+@import "../globalvariables.scss";
+.navbar {
+  background-color: $main-background;
+  a {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ffffff99;
+    &:hover {
+      color: black;
+    }
+  }
+  .navbar-burger {
+    color: #fff;
+  }
+  .navbar-menu {
+    background-color: $main-background;
+  }
+
+  @media all and (min-width: 769px) {
+    a {
+      font-size: 1rem;
+    }
+  }
+}

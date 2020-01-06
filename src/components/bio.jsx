@@ -9,6 +9,7 @@ import React from "react"
 import { StaticQuery, graphql, Link } from "gatsby"
 import Image from "gatsby-image"
 import styled from "styled-components"
+import "font-awesome/css/font-awesome.min.css"
 
 import { rhythm } from "../utils/typography"
 
@@ -36,31 +37,38 @@ function Bio() {
             <p>
               Written by <strong>{author}</strong> who lives and works in Ontario, Canada building Websites/Applications.
             </p>
-            <ul
-              style={{
-                display: `flex`,
-                flexWrap: `wrap`,
-                justifyContent: `space-around`,
-                listStyle: `none`,
-                padding: 0,
-              }}
-            >
-              <li>
-                <a href={`https://twitter.com/${social.twitter}`}>
-                  Twitter
-                </a>
-              </li>
-              <li>
-                <a href={`https://github.com/${social.github}`}>
-                  GitHub
-                </a>
-              </li>
-              <li>
-                <a href={`https://www.linkedin.com/in/${social.linkedin}`}>
-                  LinkedIn
-                </a>
-              </li>
-            </ul>
+            <div>
+              <ul
+                style={{
+                  display: `block`,
+                  flexWrap: `wrap`,
+                  justifyContent: `space-around`,
+                  listStyle: `none`,
+                  padding: 0,
+                }}
+              >
+                <li>
+                  <a href={`https://github.com/${social.github}`} title="Nvi's GitHub">
+                    <i className="fa fa-github" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href={`https://www.linkedin.com/in/${social.linkedin}`} title="Nvi's LinkedIn">
+                    <i className="fa fa-linkedin" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href={`https://www.instagram.com/${social.instagram}`} title="Nvi's Instagram">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href={`mailto:${social.email}`} title="email to Nvi">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </Container>
         )
       }}
@@ -81,7 +89,11 @@ const bioQuery = graphql`
       siteMetadata {
         author
         social {
-          twitter
+          twitter,
+          github,
+          linkedin,
+          instagram,
+          email
         }
       }
     }
