@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Button from "../components/button"
 
-class Project extends React.Component {
+class Organization extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -14,7 +14,7 @@ class Project extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All projects" />
+        <SEO title="All organizations" />
         <Bio />
         <div style={{ margin: "20px 0 40px" }}>
           {posts.map(({ node }) => {
@@ -28,7 +28,7 @@ class Project extends React.Component {
                 >
                   <Link
                     style={{ boxShadow: `none` }}
-                    to={`projects${node.fields.slug}`}
+                    to={`organizations${node.fields.slug}`}
                   >
                     {title}
                   </Link>
@@ -51,7 +51,7 @@ class Project extends React.Component {
   }
 }
 
-export default Project
+export default Organization
 
 export const pageQuery = graphql`
   query {
@@ -61,7 +61,7 @@ export const pageQuery = graphql`
       }
     }
     allMdx(
-      filter: { frontmatter: { categories: { eq: "projects" }}},
+      filter: { frontmatter: { categories: { eq: "organizations" }}},
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {

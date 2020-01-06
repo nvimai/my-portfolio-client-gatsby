@@ -6,7 +6,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-class ProjectPostTemplate extends React.Component {
+class OrganizationPostTemplate extends React.Component {
   render() {
     const post = this.props.data.mdx
     const siteTitle = this.props.data.site.siteMetadata.title
@@ -48,14 +48,14 @@ class ProjectPostTemplate extends React.Component {
         >
           <li>
             {previous && (
-              <Link to={`projects${previous.fields.slug}`} rel="prev">
+              <Link to={`organizations${previous.fields.slug}`} rel="prev">
                 ← {previous.frontmatter.title}
               </Link>
             )}
           </li>
           <li>
             {next && (
-              <Link to={`projects${next.fields.slug}`} rel="next">
+              <Link to={`organizations${next.fields.slug}`} rel="next">
                 {next.frontmatter.title} →
               </Link>
             )}
@@ -66,10 +66,10 @@ class ProjectPostTemplate extends React.Component {
   }
 }
 
-export default ProjectPostTemplate
+export default OrganizationPostTemplate
 
 export const pageQuery = graphql`
-  query ProjectPostBySlug($slug: String!) {
+  query OrganizationPostBySlug($slug: String!) {
     site {
       siteMetadata {
         title

@@ -3,7 +3,6 @@ import React from "react"
 import styled from "styled-components"
 
 import '../styles/main.scss'
-import { rhythm } from "../utils/typography"
 import TopNavBar from "./topnavbar"
 import FooterNavBar from "./footernavbar"
 
@@ -20,7 +19,7 @@ class Layout extends React.Component {
           style={{
             marginLeft: `auto`,
             marginRight: `auto`,
-            maxWidth: rhythm(24),
+            maxWidth: `56rem`,
           }}
         >
           <header>

@@ -6,6 +6,8 @@ exports.createPages = ({ graphql, actions }) => {
 
   const blogPost = path.resolve(`./src/templates/blog-post.jsx`)
   const projectPost = path.resolve(`./src/templates/project-post.jsx`)
+  const organizationPost = path.resolve(`./src/templates/organization-post.jsx`)
+  
   return graphql(
     `
       {
@@ -49,15 +51,27 @@ exports.createPages = ({ graphql, actions }) => {
           },
         })
       } else {
-        createPage({
-          path: `blog${post.node.fields.slug}`,
-          component: blogPost,
-          context: {
-            slug: post.node.fields.slug,
-            // previous,
-            // next,
-          },
-        })
+        if (post.node.frontmatter.categories && post.node.frontmatter.categories.includes('organizations')) {
+          createPage({
+            path: `organizations${post.node.fields.slug}`,
+            component: organizationPost,
+            context: {
+              slug: post.node.fields.slug,
+              // previous,
+              // next,
+            },
+          })
+        } else {
+          createPage({
+            path: `blog${post.node.fields.slug}`,
+            component: blogPost,
+            context: {
+              slug: post.node.fields.slug,
+              // previous,
+              // next,
+            },
+          })
+        }
       }
     })
 
