@@ -14,8 +14,8 @@ function OranizationsSlider() {
         const organizations = data.allMdx.edges
         let settings = {
           dots: true,
-          // autoplay: true,
-          // autoplaySpeed: 3000,
+          autoplay: true,
+          autoplaySpeed: 3000,
           arrows: true,
           slidesToShow: 4,
           slidesToScroll: 1
