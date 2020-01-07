@@ -23,15 +23,13 @@ function OranizationsSlider() {
             {
                 breakpoint: 980, // tablet breakpoint
                 settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3
+                    slidesToShow: 3
                 }
             },
             {
                 breakpoint: 480, // mobile breakpoint
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 2
+                    slidesToShow: 1
                 }
             }
           ]
