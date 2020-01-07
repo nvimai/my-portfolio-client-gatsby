@@ -45,50 +45,52 @@ export default class Footer extends Component {
                   </Link>
                   <div>{bio}</div>
                 </div>
-                <div className="navigation column columns is-mobile">
-                  <div className="column">
-                    <ul className="">
-                      <li>
-                        <Link to="#">About</Link>
-                      </li>
-                      <li>
-                        <Link to="#">Solutions</Link>
-                      </li>
-                      <li>
-                        <Link to="#">Careers</Link>
-                      </li>
-                      <li>
-                        <Link to="#">Blog</Link>
-                      </li>
-                      <li>
-                        <Link to="#">Tools</Link>
-                      </li>
-                      <li>
-                        <Link to="#">Contact</Link>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="column">
-                    <ul className="">
-                      <li>
-                        <Link to="#">About</Link>
-                      </li>
-                      <li>
-                        <Link to="#">Solutions</Link>
-                      </li>
-                      <li>
-                        <Link to="#">Careers</Link>
-                      </li>
-                      <li>
-                        <Link to="#">Blog</Link>
-                      </li>
-                      <li>
-                        <Link to="#">Tools</Link>
-                      </li>
-                      <li>
-                        <Link to="#">Contact</Link>
-                      </li>
-                    </ul>
+                <div className="navigation column">
+                  <div className="columns is-mobile">
+                    <div className="column">
+                      <ul className="">
+                        <li>
+                          <Link to="#">About</Link>
+                        </li>
+                        <li>
+                          <Link to="#">Solutions</Link>
+                        </li>
+                        <li>
+                          <Link to="#">Careers</Link>
+                        </li>
+                        <li>
+                          <Link to="#">Blog</Link>
+                        </li>
+                        <li>
+                          <Link to="#">Tools</Link>
+                        </li>
+                        <li>
+                          <Link to="#">Contact</Link>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="column">
+                      <ul className="">
+                        <li>
+                          <Link to="#">About</Link>
+                        </li>
+                        <li>
+                          <Link to="#">Solutions</Link>
+                        </li>
+                        <li>
+                          <Link to="#">Careers</Link>
+                        </li>
+                        <li>
+                          <Link to="#">Blog</Link>
+                        </li>
+                        <li>
+                          <Link to="#">Tools</Link>
+                        </li>
+                        <li>
+                          <Link to="#">Contact</Link>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
                 <div className="social column">
