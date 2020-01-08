@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import Button from "../components/button"
 import OranizationsSlider from "../components/organizations"
 import Intro from "../components/intro"
+import ProjectsSection from "../components/projects"
 
 import "../styles/pages/index.scss"
 
@@ -17,10 +18,14 @@ class IndexPage extends React.Component {
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
           title="Home"
-          keywords={[`blog`, `gatsby`, `javascript`, `react`]}
+          keywords={[`portfolio`, `blog`, `gatsby`, `javascript`, `react`]}
         />
         <div id="intro">
           <Intro />
+        </div>
+        <div id="projects">
+          <h2 className="heading">Projects</h2>
+          <ProjectsSection />
         </div>
         <div id="organizations">
           <h2 className="heading">Organizations</h2>

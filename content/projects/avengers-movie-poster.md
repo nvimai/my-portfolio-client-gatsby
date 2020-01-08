@@ -1,12 +1,12 @@
 ---
-title: Advengers Movie Poster
+title: Avengers Movie Poster
 position: Front-end Developer
 startdate: "2018-11-01T00:00:00.000Z"
 enddate: "2018-11-30T00:00:00.000Z"
 location: Georigan College Barrie Campus
 categories: ["projects", "education"]
 tags: ["Design","HTML","Poster","CSS"]
-image: "./images/avengers-movie-poster.png"
+image: "./images/avengers-movie-poster.jpg"
 url: "http://aws.computerstudi.es/~gc200385752/assignment3/index.php"
 ---
 

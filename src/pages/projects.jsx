@@ -1,51 +1,31 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Button from "../components/button"
+import ProjectCard from "../components/projectcard"
 
 class Project extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMdx.edges
+    const title = "All projects"
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All projects" />
-        <Bio />
-        <div style={{ margin: "20px 0 40px" }}>
-          {posts.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug
-            return (
-              <div key={node.fields.slug}>
-                <h3
-                  style={{
-                    marginBottom: `2rem`,
-                  }}
-                >
-                  <Link
-                    style={{ boxShadow: `none` }}
-                    to={`projects${node.fields.slug}`}
-                  >
-                    {title}
-                  </Link>
-                </h3>
-                <small>{node.frontmatter.date}</small>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-              </div>
-            )
-          })}
+        <SEO title={title} />
+        <h1>{title}</h1>
+        <div className="columns is-multiline" style={{ margin: "20px 0 40px" }}>
+          {
+            posts.map(({ node }) => {
+              const project = node
+              return <ProjectCard { ...project} />
+            })
+          }
         </div>
-        <Link to="/">
-          <Button marginTop="85px">Go Home</Button>
-        </Link>
+        <Bio />
       </Layout>
     )
   }
@@ -62,7 +42,7 @@ export const pageQuery = graphql`
     }
     allMdx(
       filter: { frontmatter: { categories: { eq: "projects" }}},
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___enddate], order: DESC }
     ) {
       edges {
         node {
@@ -71,11 +51,14 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            startdate(formatString: "MMMM DD, YYYY")
-            enddate(formatString: "MMMM DD, YYYY")
+            startdate(formatString: "MMM YYYY")
+            enddate(formatString: "MMM YYYY")
             title
+            position
+            location
             categories
-            description
+            tags
+            image
           }
         }
       }

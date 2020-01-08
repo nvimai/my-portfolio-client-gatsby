@@ -94,7 +94,7 @@ module.exports = {
         short_name: `NviMaiPortfolio`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#343a40`,
+        theme_color: `#2E2E2E`,
         display: `minimal-ui`,
         // edit below
         icon: `content/assets/logo-nuniversal.svg`,

@@ -6,7 +6,7 @@ enddate: "2018-08-25T00:00:00.000Z"
 location: Barrie, Ontario, Ca
 categories: ["projects", "volunteer"]
 tags: ["Services"]
-image: "./images/barrie-dragon-boat-festival.PNG"
+image: "./images/barrie-dragon-boat-festival.JPG"
 url: "http://7dayskin.vn/"
 ---
 

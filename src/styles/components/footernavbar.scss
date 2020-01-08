@@ -6,7 +6,7 @@
   font-size: 1.2rem;
 	color: #fff;
 	main {
-		padding-top: 0;
+		padding-top: 2rem;
 	}
 	.brand {
 		text-align: center;
@@ -15,9 +15,9 @@
 		}
 	}
 	.social {
+		text-align: center;
 		ul {
 			list-style: none;
-			text-align: center;
       font-size: 1.5rem;
 			li {
 				display: inline-flex;
@@ -58,8 +58,8 @@
 			}
 		}
 		.social {
+			text-align: left;
 			ul {
-				text-align: left;
 				font-size: 1.2rem;
 			}
 		}

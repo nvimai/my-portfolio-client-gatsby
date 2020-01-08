@@ -17,11 +17,12 @@ function OranizationsSlider() {
           autoplay: true,
           autoplaySpeed: 3000,
           arrows: true,
+          pauseOnHover: true,
           slidesToShow: 4,
           slidesToScroll: 1,
           responsive: [
             {
-                breakpoint: 980, // tablet breakpoint
+                breakpoint: 768, // tablet breakpoint
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 1

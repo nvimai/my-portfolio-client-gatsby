@@ -48,21 +48,13 @@ export default class Footer extends Component {
                 <div className="navigation column">
                   <div className="columns is-mobile">
                     <div className="column">
+                      <h4>Categories</h4>
                       <ul className="">
                         <li>
-                          <Link to="#">About</Link>
+                          <Link to="/projects">Projects</Link>
                         </li>
                         <li>
-                          <Link to="#">Solutions</Link>
-                        </li>
-                        <li>
-                          <Link to="#">Careers</Link>
-                        </li>
-                        <li>
-                          <Link to="#">Blog</Link>
-                        </li>
-                        <li>
-                          <Link to="#">Tools</Link>
+                          <Link to="/blogs">Blog</Link>
                         </li>
                         <li>
                           <Link to="#">Contact</Link>
@@ -70,30 +62,23 @@ export default class Footer extends Component {
                       </ul>
                     </div>
                     <div className="column">
+                      <h4>Groups</h4>
                       <ul className="">
                         <li>
-                          <Link to="#">About</Link>
+                          <Link to="#">Web Application</Link>
                         </li>
                         <li>
-                          <Link to="#">Solutions</Link>
+                          <Link to="#">WordPress</Link>
                         </li>
                         <li>
-                          <Link to="#">Careers</Link>
-                        </li>
-                        <li>
-                          <Link to="#">Blog</Link>
-                        </li>
-                        <li>
-                          <Link to="#">Tools</Link>
-                        </li>
-                        <li>
-                          <Link to="#">Contact</Link>
+                          <Link to="#">Computer Science</Link>
                         </li>
                       </ul>
                     </div>
                   </div>
                 </div>
                 <div className="social column">
+                  <h4>More About Me</h4>
                   <ul>
                     <li>
                       <a className="social-item" href={`https://github.com/${social.github}`} title="Nvi's GitHub">
