@@ -3,11 +3,12 @@
 .card-project {
 	text-align: center;
 	.image {
-		.photo {
-			height: 100%;
-			width: auto;
-			margin: auto;
-		}
+		overflow: hidden;
+	// 	.photo {
+	// 		height: 100%;
+	// 		width: auto;
+	// 		margin: auto;
+	// 	}
 	}
 
 	.name {

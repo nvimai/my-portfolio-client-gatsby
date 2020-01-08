@@ -5,7 +5,7 @@ module.exports = {
     author: `Nvi Mai`,
     bio: `My name is Nvi, which is Nhat Vietnam ^.^`,
     description: `My personal portfolio website build on Gatsby ReactJS and Netlify.`,
-    siteUrl: `https://nvimai.netlify.com/`,
+    siteUrl: `https://nvimai.com`,
     social: {
       twitter: `nvimai`,
       github: `nvimai`,
@@ -23,6 +23,12 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-feed-mdx`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: ['/blog/*'],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

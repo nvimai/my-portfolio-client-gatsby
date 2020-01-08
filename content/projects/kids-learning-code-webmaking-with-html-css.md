@@ -6,7 +6,7 @@ enddate: "2019-03-16T00:00:00.000Z"
 location: Canada Learning Code
 categories: ["projects", "volunteer"]
 tags: ["Web","Mentor","HTML","CSS"]
-image: "./images/canada-learning-code.svg"
+image: "canada-learning-code.png"
 url:
 ---
 

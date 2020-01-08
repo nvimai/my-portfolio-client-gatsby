@@ -6,7 +6,7 @@ enddate: "2018-10-20T00:00:00.000Z"
 location: Barrie, Ontario, Ca
 categories: ["projects", "volunteer"]
 tags: ["Services", "Design"]
-image: "./images/3d-design-for-kids.png"
+image: "3d-design-for-kids.png"
 url:
 ---
 

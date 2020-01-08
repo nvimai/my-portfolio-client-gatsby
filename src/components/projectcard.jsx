@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from "gatsby"
+import { Link } from "gatsby";
+import Image from "./image";
 import '../styles/components/projectcard.scss';
 
 export default class ProjectCard extends Component {
@@ -20,8 +21,17 @@ export default class ProjectCard extends Component {
       <div className="column is-one-quarter-tablet">
         <div className="card-project card">
           <div className="card-image">
-            <figure className="image is-2by1">
-              <img className="photo" src={image} alt={title} />
+            <figure className="image">
+              {/* <img className="photo" src={image} alt={title} /> */}
+              <Image
+                filename={image}
+                alt={title}
+                imgStyle={{
+                  height: `100%`,
+                  width: `auto`,
+                  margin: `auto`,
+                }}
+              />
             </figure>
           </div>
           <div className="card-content">

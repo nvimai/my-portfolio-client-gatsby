@@ -6,7 +6,7 @@ enddate: "2016-06-01T00:00:00.000Z"
 location: Ho Chi Minh City, Vietnam
 categories: ["projects", "work"]
 tags: ["WordPress","Web","SEO","Full-stack"]
-image: "./images/cung-cap-rau-sai-gon.png"
+image: "cung-cap-rau-sai-gon.png"
 url: "http://www.cungcaprausaigon.com"
 ---
 

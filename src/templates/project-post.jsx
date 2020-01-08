@@ -86,10 +86,10 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
+        position
         startdate(formatString: "MMM YYYY")
         enddate(formatString: "MMM YYYY")
         categories
-        description
         tags
         url
       }

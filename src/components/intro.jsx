@@ -28,9 +28,6 @@ function Intro() {
                     minWidth: 50,
                     borderRadius: `100%`,
                   }}
-                  imgStyle={{
-                    borderRadius: `50%`,
-                  }}
                 />
               </div>
               <div className="column">

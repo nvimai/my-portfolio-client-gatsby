@@ -83,7 +83,6 @@ const oranizationsQuery = graphql`
             title
             position
             categories
-            description
             image
           }
         }

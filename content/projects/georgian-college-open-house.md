@@ -6,6 +6,6 @@ enddate: "2018-11-11T00:00:00.000Z"
 location: Georgian College Barrie Campus
 categories: ["projects", "volunteer"]
 tags: ["Services","Volunteer"]
-image: "./images/georgian-open-house.jpg"
+image: "georgian-open-house.jpg"
 url:
 ---

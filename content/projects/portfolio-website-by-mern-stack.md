@@ -6,7 +6,7 @@ enddate:
 location: Barrie, Ontario, Ca
 categories: ["projects", "work"]
 tags: ["Web","Full-stack","MERN","MongoDB","ExpressJS","React","NodeJS","Bootstrap"]
-image: "./images/nvi-mai-portfolio.png"
+image: "nvi-mai-portfolio.png"
 url: "https://www.nvimai.com"
 
 ---

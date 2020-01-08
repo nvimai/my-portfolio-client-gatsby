@@ -86,7 +86,7 @@ export const pageQuery = graphql`
         startdate(formatString: "MMMM DD, YYYY")
         enddate(formatString: "MMMM DD, YYYY")
         categories
-        description
+        position
       }
     }
   }

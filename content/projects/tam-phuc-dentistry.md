@@ -6,7 +6,7 @@ enddate: "2017-10-01T00:00:00.000Z"
 location: Ho Chi Minh City, Vietnam
 categories: ["projects", "work"]
 tags: ["WordPress","Web","SEO","Full-stack"]
-image: "./images/tam-phuc-dentistry.png"
+image: "tam-phuc-dentistry.png"
 url: "http://nhakhoatamphuc.vn"
 ---
 

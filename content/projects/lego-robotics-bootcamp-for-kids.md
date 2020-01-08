@@ -6,7 +6,7 @@ enddate: "2018-11-10T00:00:00.000Z"
 location: Barrie, Ontario, Ca
 categories: ["projects", "volunteer"]
 tags: ["Computer Science", "Mentor", "Volunteer"]
-image: "./images/lego-robotics-kids.jpeg"
+image: "lego-robotics-kids.jpeg"
 url:
 ---
 

@@ -6,7 +6,7 @@ enddate: "2017-11-01T00:00:00.000Z"
 location: Ho Chi Minh City, Vietnam
 categories: ["projects", "work"]
 tags: ["WordPress","Web","SEO","Full-stack"]
-image: "./images/7dayskin.png"
+image: "7dayskin.png"
 url: "http://7dayskin.vn/"
 ---
 

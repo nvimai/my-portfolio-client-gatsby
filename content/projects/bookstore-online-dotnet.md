@@ -6,7 +6,7 @@ enddate: "2018-12-01T00:00:00.000Z"
 location: Georigan College Barrie Campus
 categories: ["projects", "education"]
 tags: ["Web", ".NET MVC", "C#", "Bootstrap"]
-image: "./images/bookstore-dotnet.png"
+image: "bookstore-dotnet.png"
 url: "http://bookstore-net.gear.host"
 ---
 

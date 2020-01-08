@@ -6,7 +6,7 @@ enddate: "2019-04-01T00:00:00.000Z"
 location: Georigan College Barrie Campus
 categories: ["projects", "education"]
 tags: ["WordPress", "Full-stack Development", "PHP", "Divi Theme"]
-image: "./images/wordpress-portfolio.png"
+image: "wordpress-portfolio.png"
 url: "http://wordpresss.nvimai.com"
 ---
 

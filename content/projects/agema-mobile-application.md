@@ -6,7 +6,7 @@ enddate:
 location: Barrie, Ontario, Ca
 categories: ["projects", "work"]
 tags: ["App", "Full-stack", "Angular", ".Net Core", "RestAPI", "MS SQL server", "Ionic Cordova"]
-image: "./images/agema.png"
+image: "agema-mobile.png"
 url: "https://play.google.com/store/apps/details?id=com.agemahospitality.mobile"
 
 ---

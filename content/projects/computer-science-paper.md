@@ -6,7 +6,7 @@ enddate: "2015-10-01T00:00:00.000Z"
 location: Ho Chi Minh City, Vietnam
 categories: ["projects", "education"]
 tags: ["Computer Science", "C/C++", "Image processing", "Face Detection", "Pose Estimation", "Landmark Localization"]
-image: "./images/conferrence-paper.png"
+image: "conferrence-paper.png"
 url: "https://ieeexplore.ieee.org/document/7371751"
 ---
 
