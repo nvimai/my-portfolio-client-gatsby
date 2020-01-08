@@ -1,5 +1,4 @@
 import React from "react"
-// import { Link } from "gatsby"
 import styled from "styled-components"
 
 import '../styles/main.scss'
@@ -8,7 +7,7 @@ import FooterNavBar from "./footernavbar"
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
+    const { children, childName } = this.props
     // const rootPath = `${__PATH_PREFIX__}/`
     // const blogPath = `${__PATH_PREFIX__}/blog/`
     // const projectsPath = `${__PATH_PREFIX__}/projects/`
@@ -25,7 +24,7 @@ class Layout extends React.Component {
           <header>
             <TopNavBar />
           </header>
-          <main>{children}</main>
+          <main className={childName}>{children}</main>
         </div>
         <FooterNavBar />
       </Wrapper>

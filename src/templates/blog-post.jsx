@@ -10,7 +10,7 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.mdx
     const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
+    // const { previous, next } = this.props.pageContext
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -18,14 +18,14 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
+        <Link to="/blog">&#8592; All posts</Link>
         <h1>{post.frontmatter.title}</h1>
-        <p
+        <small style={{ fontSize: '70%' }}>{post.frontmatter.date}</small>
+        <hr
           style={{
-            display: `block`,
+            marginBottom: `1rem`,
           }}
-        >
-          {post.frontmatter.date}
-        </p>
+        />
         <MDXRenderer>{post.body}</MDXRenderer>
         <hr
           style={{
@@ -33,7 +33,6 @@ class BlogPostTemplate extends React.Component {
           }}
         />
         <Bio />
-
         {/* <ul
           style={{
             display: `flex`,

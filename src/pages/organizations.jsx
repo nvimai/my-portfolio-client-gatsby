@@ -21,11 +21,7 @@ class Organization extends React.Component {
             const title = node.frontmatter.title || node.fields.slug
             return (
               <div key={node.fields.slug}>
-                <h3
-                  style={{
-                    marginBottom: `2rem`,
-                  }}
-                >
+                <h3>
                   <Link
                     style={{ boxShadow: `none` }}
                     to={`organizations${node.fields.slug}`}

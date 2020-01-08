@@ -4,36 +4,40 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
+import Tag from "../components/tag"
+import Button from "../components/button"
 import SEO from "../components/seo"
+import "../styles/templates/project-post.scss"
 
 class ProjectPostTemplate extends React.Component {
   render() {
     const post = this.props.data.mdx
     const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
+    // const { previous, next } = this.props.pageContext
+    const { title, description, tags, startdate, enddate, url } = post.frontmatter
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location} title={siteTitle} childName="project-post">
         <SEO
-          title={post.frontmatter.title}
-          description={post.frontmatter.description || post.excerpt}
+          title={title}
+          description={description || post.excerpt}
         />
-        <h1>{post.frontmatter.title}</h1>
-        <p
-          style={{
-            display: `block`,
-          }}
-        >
-          {post.frontmatter.startdate}
-        </p>
-        <p
-          style={{
-            display: `block`,
-          }}
-        >
-          {post.frontmatter.enddate}
-        </p>
+        <Link to="/projects">&#8592; All projects</Link>
+        <h1>{title}</h1>
+        <p className="date">{startdate ? startdate : 'Present'} - <span className="end">{enddate ? enddate : 'Present'}</span></p>
+        {tags ? tags.map((tag) => {
+            return (
+              <Tag className="tag">{tag}</Tag>
+            )
+          }) : ''}
+        <hr />
         <MDXRenderer>{post.body}</MDXRenderer>
+        <br />
+        {!url ? '' :
+          <a href={url}>
+            <Button>Click here for more details <i class="fa fa-link" aria-hidden="true"></i></Button>
+          </a>
+        }
         <hr />
         <Bio />
 
@@ -82,10 +86,12 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
-        startdate(formatString: "MMMM DD, YYYY")
-        enddate(formatString: "MMMM DD, YYYY")
+        startdate(formatString: "MMM YYYY")
+        enddate(formatString: "MMM YYYY")
         categories
         description
+        tags
+        url
       }
     }
   }

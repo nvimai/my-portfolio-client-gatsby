@@ -8,7 +8,6 @@
 import React from "react"
 import { StaticQuery, graphql, Link } from "gatsby"
 import Image from "gatsby-image"
-import styled from "styled-components"
 import "font-awesome/css/font-awesome.min.css"
 
 function Bio() {
@@ -18,55 +17,44 @@ function Bio() {
       render={data => {
         const { author, social } = data.site.siteMetadata
         return (
-          <Container>
-            <Image
-              fixed={data.avatar.childImageSharp.fixed}
-              alt={author}
-              style={{
-                marginBottom: 0,
-                minWidth: 50,
-                borderRadius: `100%`,
-              }}
-              imgStyle={{
-                borderRadius: `50%`,
-              }}
-            />
-            <p>
-              Written by <strong>{author}</strong> who lives and works in Ontario, Canada building Websites/Applications.
-            </p>
-            <div>
-              <ul
+          <div className="bio">
+            <Link to="/" className="media" style={{ color: `unset`}}>
+              <Image
+                className="media-left"
+                fixed={data.avatar.childImageSharp.fixed}
+                alt={author}
                 style={{
-                  display: `block`,
-                  flexWrap: `wrap`,
-                  justifyContent: `space-around`,
-                  listStyle: `none`,
-                  padding: 0,
+                  marginBottom: 0,
+                  minWidth: 50,
+                  borderRadius: `100%`,
                 }}
-              >
-                <li>
-                  <a href={`https://github.com/${social.github}`} title="Nvi's GitHub">
-                    <i className="fa fa-github" aria-hidden="true"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href={`https://www.linkedin.com/in/${social.linkedin}`} title="Nvi's LinkedIn">
-                    <i className="fa fa-linkedin" aria-hidden="true"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href={`https://www.instagram.com/${social.instagram}`} title="Nvi's Instagram">
-                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href={`mailto:${social.email}`} title="email to Nvi">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </Container>
+                imgStyle={{
+                  borderRadius: `50%`,
+                }}
+              />
+              <div className="media-content">
+                <div className="content">
+                  <p>Written by <strong>{author}</strong> who lives and works in Ontario, Canada building Websites/Applications.</p>
+                </div>
+                <nav className="level is-mobile">
+                  <div className="level-left">
+                    <a className="level-item" href={`https://github.com/${social.github}`} title="Nvi's GitHub">
+                      <span className="icon is-small"><i className="fa fa-github"></i></span>
+                    </a>
+                    <a className="level-item" href={`https://www.linkedin.com/in/${social.linkedin}`} title="Nvi's LinkedIn">
+                      <span className="icon is-small"><i className="fa fa-linkedin"></i></span>
+                    </a>
+                    <a className="level-item" href={`https://www.instagram.com/${social.instagram}`} title="Nvi's Instagram">
+                      <span className="icon is-small"><i className="fa fa-instagram"></i></span>
+                    </a>
+                    <a className="level-item" href={`mailto:${social.email}`} title="email to Nvi">
+                      <span className="icon is-small"><i className="fa fa-envelope"></i></span>
+                    </a>
+                  </div>
+                </nav>
+              </div>
+            </Link>
+          </div>
         )
       }}
     />
@@ -95,10 +83,6 @@ const bioQuery = graphql`
       }
     }
   }
-`
-
-const Container = styled.div`
-  display: flex;
 `
 
 export default Bio

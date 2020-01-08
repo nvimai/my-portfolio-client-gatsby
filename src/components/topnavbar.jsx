@@ -38,7 +38,7 @@ export default class TopNavBar extends Component {
       <StaticQuery
         query={navBarQuery}
         render={data => {
-          const { title, author, social } = data.site.siteMetadata
+          const { title, social } = data.site.siteMetadata
           return (
             <nav
               className={`navbar is-fixed-top ${this.state.menuOpen ? 'is-active' : ''}`}
@@ -90,10 +90,10 @@ export default class TopNavBar extends Component {
                     <i className="fa fa-linkedin" aria-hidden="true"></i>
                   </a>
                   <a className="navbar-item" href={`https://www.instagram.com/${social.instagram}`} title="Nvi's Instagram">
-                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                    <i className="fa fa-instagram" aria-hidden="true"></i>
                   </a>
                   <a className="navbar-item" href={`mailto:${social.email}`} title="email to Nvi">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <i className="fa fa-envelope" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>

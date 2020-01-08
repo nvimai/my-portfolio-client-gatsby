@@ -5,7 +5,6 @@ import '../styles/components/projectcard.scss';
 export default class ProjectCard extends Component {
 	constructor(props) {
     super(props);
-    console.log(props)
 		this.state = {
       project: this.props.frontmatter,
       fields: this.props.fields,
@@ -14,14 +13,14 @@ export default class ProjectCard extends Component {
 	}
 
   render() {
-    const { title, position, startdate, enddate, tags, image, url } = this.state.project
+    const { title, position, startdate, enddate, tags, image } = this.state.project
     const { slug } = this.state.fields
 
     return (
       <div className="column is-one-quarter-tablet">
         <div className="card-project card">
           <div className="card-image">
-            <figure class="image is-2by1">
+            <figure className="image is-2by1">
               <img className="photo" src={image} alt={title} />
             </figure>
           </div>

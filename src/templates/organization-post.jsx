@@ -10,7 +10,7 @@ class OrganizationPostTemplate extends React.Component {
   render() {
     const post = this.props.data.mdx
     const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
+    // const { previous, next } = this.props.pageContext
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -18,6 +18,7 @@ class OrganizationPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
+        <Link to="/organizations">&#8592; All organizations</Link>
         <h1>{post.frontmatter.title}</h1>
         <p
           style={{

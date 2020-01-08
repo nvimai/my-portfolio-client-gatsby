@@ -54,7 +54,7 @@ export default class Footer extends Component {
                           <Link to="/projects">Projects</Link>
                         </li>
                         <li>
-                          <Link to="/blogs">Blog</Link>
+                          <Link to="/blog">Blog</Link>
                         </li>
                         <li>
                           <Link to="#">Contact</Link>
@@ -87,17 +87,17 @@ export default class Footer extends Component {
                     </li>
                     <li>
                       <a className="social-item" href={`https://www.linkedin.com/in/${social.linkedin}`} title="Nvi's LinkedIn">
-                        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                        <i className="fa fa-linkedin-square" aria-hidden="true"></i>
                       </a>
                     </li>
                     <li>
                       <a className="social-item" href={`https://www.instagram.com/${social.instagram}`} title="Nvi's Instagram">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                        <i className="fa fa-instagram" aria-hidden="true"></i>
                       </a>
                     </li>
                     <li>
                       <a className="social-item" href={`mailto:${social.email}`} title="email to Nvi">
-                        <i class="fa fa-envelope-square" aria-hidden="true"></i>
+                        <i className="fa fa-envelope-square" aria-hidden="true"></i>
                       </a>
                     </li>
                   </ul>
@@ -105,7 +105,7 @@ export default class Footer extends Component {
               </main>
               <aside>
                 <div className="copyright">
-                  <p>© {new Date().getFullYear()} by <b>{author}</b> with <i class="fa fa-heart" aria-hidden="true"></i></p>
+                  <p>© {new Date().getFullYear()} by <b>{author}</b> with <i className="fa fa-heart" aria-hidden="true"></i></p>
                 </div>
                 <div className="terms">
                   <p><Link to="#">Privacy Policy</Link> | <Link to="#">Terms &#38; Conditions</Link></p>
