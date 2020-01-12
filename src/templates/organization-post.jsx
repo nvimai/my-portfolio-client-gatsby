@@ -32,7 +32,7 @@ class OrganizationPostTemplate extends React.Component {
             display: `block`,
           }}
         >
-          {post.frontmatter.enddate}
+          {node.frontmatter.present ? 'Present' : node.frontmatter.enddate}
         </p>
         <MDXRenderer>{post.body}</MDXRenderer>
         <hr />
@@ -84,6 +84,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         startdate(formatString: "MMMM DD, YYYY")
+        present
         enddate(formatString: "MMMM DD, YYYY")
         categories
         position

@@ -2,6 +2,7 @@
 title: My Portfolio Website built from MERN Stack
 position: Full-stack Developer
 startdate: "2019-01-01T00:00:00.000Z"
+present: true
 enddate: 
 location: Barrie, Ontario, Ca
 categories: ["projects", "work"]

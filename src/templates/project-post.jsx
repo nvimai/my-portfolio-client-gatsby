@@ -14,7 +14,7 @@ class ProjectPostTemplate extends React.Component {
     const post = this.props.data.mdx
     const siteTitle = this.props.data.site.siteMetadata.title
     // const { previous, next } = this.props.pageContext
-    const { title, description, tags, startdate, enddate, url } = post.frontmatter
+    const { title, description, tags, startdate, enddate, present, url } = post.frontmatter
 
     return (
       <Layout location={this.props.location} title={siteTitle} childName="project-post">
@@ -24,7 +24,7 @@ class ProjectPostTemplate extends React.Component {
         />
         <Link to="/projects">&#8592; All projects</Link>
         <h1>{title}</h1>
-        <p className="date">{startdate ? startdate : 'Present'} - <span className="end">{enddate ? enddate : 'Present'}</span></p>
+        <p className="date">{startdate ? startdate : 'Present'} - <span className="end">{present ? 'Present' : enddate }</span></p>
         {tags ? tags.map((tag) => {
             return (
               <Tag className="tag">{tag}</Tag>
@@ -88,6 +88,7 @@ export const pageQuery = graphql`
         title
         position
         startdate(formatString: "MMM YYYY")
+        present
         enddate(formatString: "MMM YYYY")
         categories
         tags

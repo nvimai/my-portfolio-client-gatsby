@@ -2,6 +2,7 @@
 title: Expogain International Inc.
 position: Full-stack Developer
 startdate: "2019-05-01T00:00:00.000Z"
+present: true
 enddate:
 categories: ["organizations", "experience"]
 location: Barrie, Ontario, Ca

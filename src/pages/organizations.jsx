@@ -29,7 +29,7 @@ class Organizations extends React.Component {
                     {title}
                   </Link>
                 </h3>
-                <small>{node.frontmatter.date}</small>
+                <small>{node.frontmatter.present ? 'Present' : node.frontmatter.enddate}</small>
                 <p
                   dangerouslySetInnerHTML={{
                     __html: node.frontmatter.description || node.excerpt,
@@ -68,6 +68,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             startdate(formatString: "MMM YYYY")
+            present
             enddate(formatString: "MMM YYYY")
             title
             categories
