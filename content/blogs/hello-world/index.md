@@ -14,5 +14,5 @@ function helloWorld() {
 }
 ```
 
-![Nvi Mai Portfolio](/images/nhat-profile.jpg)
+![Nvi Mai Portfolio](/images/nhat-working.png?width=500px)
 

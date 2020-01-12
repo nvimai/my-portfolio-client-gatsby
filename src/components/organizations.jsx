@@ -40,13 +40,13 @@ function OranizationsSlider() {
         return (
           <Slider className="organizations" {...settings}>
             {organizations.map(({node}) => {
-              const { title, image, startdate, enddate, position } = node.frontmatter
+              const { title, image, startdate, enddate, position, present } = node.frontmatter
               return (
                 <div className="organization" key={node.fields.slug}>
                   <img src={image} className="photo" alt={title + ' logo'} />
                   <h5 className="name">{title}</h5>
                   <h4 className="job-title">{position}</h4>
-                  <p className="date">{startdate ? startdate : 'Present'} - <span className="end">{enddate ? enddate : 'Present'}</span></p>
+                  <p className="date">{startdate ? startdate : 'Present'} - <span className="end">{present ? 'Present' : enddate }</span></p>
                 </div>
               )
             })}
@@ -79,6 +79,7 @@ const oranizationsQuery = graphql`
           }
           frontmatter {
             startdate(formatString: "MMM YYYY")
+            present
             enddate(formatString: "MMM YYYY")
             title
             position

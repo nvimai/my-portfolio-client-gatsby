@@ -46,6 +46,7 @@ const projectsQuery = graphql`
           frontmatter {
             startdate(formatString: "MMM YYYY")
             enddate(formatString: "MMM YYYY")
+            present
             title
             position
             location

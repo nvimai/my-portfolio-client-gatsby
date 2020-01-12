@@ -14,7 +14,7 @@ export default class ProjectCard extends Component {
 	}
 
   render() {
-    const { title, position, startdate, enddate, tags, image } = this.state.project
+    const { title, position, startdate, enddate, present, tags, image } = this.state.project
     const { slug } = this.state.fields
 
     return (
@@ -49,7 +49,7 @@ export default class ProjectCard extends Component {
             }) : ''}
           </div>
           <div className="card-footer">
-            <p className="date">{startdate ? startdate : 'Present'} - <span className="end">{enddate ? enddate : 'Present'}</span></p>
+            <p className="date">{startdate ? startdate : 'Present'} - <span className="end">{present ? 'Present' : enddate }</span></p>
           </div>
         </div>
       </div>
