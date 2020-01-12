@@ -94,10 +94,16 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        whitelist: ["GOOGLE_ANALYTICS_ID"]
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // edit below
-        trackingId: `UA-135013805-1`,
+        trackingId: process.env.GOOGLE_ANALYTICS_ID,
       },
     },
     {
