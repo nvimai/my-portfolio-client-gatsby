@@ -5,7 +5,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-class Blog extends React.Component {
+class Blogs extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -23,7 +23,7 @@ class Blog extends React.Component {
             return (
               <Link
                   style={{ boxShadow: `none`, color: 'unset' }}
-                  to={`blog${node.fields.slug}`}
+                  to={`blogs${node.fields.slug}`}
                 >
                 <article key={node.fields.slug}
                   style={{
@@ -48,7 +48,7 @@ class Blog extends React.Component {
   }
 }
 
-export default Blog
+export default Blogs
 
 export const pageQuery = graphql`
   query {

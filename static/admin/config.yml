@@ -8,7 +8,7 @@ public_folder: assets
 collections:
   - name: blog
     label: Blog
-    folder: content/blog
+    folder: content/blogs
     create: true
     fields:
       - { name: path, label: Path }
@@ -19,6 +19,17 @@ collections:
   - name: projects
     label: Projects
     folder: content/projects
+    create: true
+    fields:
+      - { name: path, label: Path }
+      - { name: startdate, label: Start Date, widget: date }
+      - { name: enddate, label: End Date, widget: date }
+      - { name: title, label: Title }
+      - { name: description, label: Description }
+      - { name: body, label: Body, widget: markdown }
+  - name: organizations
+    label: Organizations
+    folder: content/organizations
     create: true
     fields:
       - { name: path, label: Path }

@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Button from "../components/button"
 
-class Organization extends React.Component {
+class Organizations extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -47,7 +47,7 @@ class Organization extends React.Component {
   }
 }
 
-export default Organization
+export default Organizations
 
 export const pageQuery = graphql`
   query {
@@ -67,8 +67,8 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            startdate(formatString: "MMMM DD, YYYY")
-            enddate(formatString: "MMMM DD, YYYY")
+            startdate(formatString: "MMM YYYY")
+            enddate(formatString: "MMM YYYY")
             title
             categories
             position

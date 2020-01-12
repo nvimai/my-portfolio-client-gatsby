@@ -18,7 +18,7 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <Link to="/blog">&#8592; All posts</Link>
+        <Link to="/blogs">&#8592; All posts</Link>
         <h1>{post.frontmatter.title}</h1>
         <small style={{ fontSize: '70%' }}>{post.frontmatter.date}</small>
         <hr
@@ -44,14 +44,14 @@ class BlogPostTemplate extends React.Component {
         >
           <li>
             {previous && (
-              <Link to={`blog${previous.fields.slug}`} rel="prev">
+              <Link to={`blogs${previous.fields.slug}`} rel="prev">
                 ← {previous.frontmatter.title}
               </Link>
             )}
           </li>
           <li>
             {next && (
-              <Link to={`blog${next.fields.slug}`} rel="next">
+              <Link to={`blogs${next.fields.slug}`} rel="next">
                 {next.frontmatter.title} →
               </Link>
             )}

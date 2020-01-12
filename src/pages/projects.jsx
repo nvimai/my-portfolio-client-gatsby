@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ProjectCard from "../components/projectcard"
 
-class Project extends React.Component {
+class Projects extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -29,7 +29,7 @@ class Project extends React.Component {
   }
 }
 
-export default Project
+export default Projects
 
 export const pageQuery = graphql`
   query {

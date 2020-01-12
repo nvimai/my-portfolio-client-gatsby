@@ -9,7 +9,7 @@ class Layout extends React.Component {
   render() {
     const { children, childName } = this.props
     // const rootPath = `${__PATH_PREFIX__}/`
-    // const blogPath = `${__PATH_PREFIX__}/blog/`
+    // const blogPath = `${__PATH_PREFIX__}/blogs/`
     // const projectsPath = `${__PATH_PREFIX__}/projects/`
 
     return (
