@@ -32,7 +32,7 @@ class OrganizationPostTemplate extends React.Component {
             display: `block`,
           }}
         >
-          {node.frontmatter.present ? 'Present' : node.frontmatter.enddate}
+          { post.frontmatter.present ? 'Present' : post.frontmatter.enddate }
         </p>
         <MDXRenderer>{post.body}</MDXRenderer>
         <hr />
