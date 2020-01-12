@@ -6,35 +6,29 @@ media_folder: static/images
 public_folder: assets
 
 collections:
-  - name: blog
-    label: Blog
+  - name: blogs
+    label: Blogs
     folder: content/blogs
     create: true
     fields:
-      - { name: path, label: Path }
-      - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
-      - { name: description, label: Description }
+      - { name: date, label: Date, widget: date }
       - { name: body, label: Body, widget: markdown }
   - name: projects
     label: Projects
     folder: content/projects
     create: true
     fields:
-      - { name: path, label: Path }
+      - { name: title, label: Title }
       - { name: startdate, label: Start Date, widget: date }
       - { name: enddate, label: End Date, widget: date }
-      - { name: title, label: Title }
-      - { name: description, label: Description }
       - { name: body, label: Body, widget: markdown }
   - name: organizations
     label: Organizations
     folder: content/organizations
     create: true
     fields:
-      - { name: path, label: Path }
+      - { name: title, label: Title }
       - { name: startdate, label: Start Date, widget: date }
       - { name: enddate, label: End Date, widget: date }
-      - { name: title, label: Title }
-      - { name: description, label: Description }
       - { name: body, label: Body, widget: markdown }
