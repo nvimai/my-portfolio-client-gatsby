@@ -103,7 +103,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // edit below
-        trackingId: process.env.GOOGLE_ANALYTICS_ID,
+        trackingId: `UA-135013805-1`,
       },
     },
     {
@@ -117,6 +117,13 @@ module.exports = {
         display: `minimal-ui`,
         // edit below
         icon: `content/assets/logo-nuniversal.svg`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://nvimai.com`,
+        stripQueryString: true,
       },
     },
     // {
