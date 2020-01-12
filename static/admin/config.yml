@@ -13,6 +13,7 @@ collections:
     fields:
       - { name: title, label: Title }
       - { name: date, label: Date, widget: date }
+      - { name: categories, label: Categories, widget: list, default: ["blog"]}
       - { name: body, label: Body, widget: markdown }
   - name: projects
     label: Projects
@@ -20,8 +21,15 @@ collections:
     create: true
     fields:
       - { name: title, label: Title }
+      - { name: position, label: Position }
       - { name: startdate, label: Start Date, widget: date }
-      - { name: enddate, label: End Date, widget: date }
+      - { name: present, label: I am currently working in this role, widget: boolean, default: true }
+      - { name: enddate, label: End Date, widget: date, default: '' }
+      - { name: categories, label: Categories, widget: list, default: ["projects"]}
+      - { name: tags, label: Tags, widget: list, default: ["Web"]}
+      - { name: location, label: Location, default: ''}
+      - { name: image, label: Featured Image, widget: image, default: ''}
+      - { name: url, label: External URL, default: '' }
       - { name: body, label: Body, widget: markdown }
   - name: organizations
     label: Organizations
@@ -29,6 +37,12 @@ collections:
     create: true
     fields:
       - { name: title, label: Title }
+      - { name: position, label: Position }
       - { name: startdate, label: Start Date, widget: date }
-      - { name: enddate, label: End Date, widget: date }
+      - { name: present, label: I am currently working in this role, widget: boolean, default: true }
+      - { name: enddate, label: End Date, widget: date, default: '' }
+      - { name: categories, label: Categories, widget: list, default: ["organizations", "experience"]}
+      - { name: location, label: Location, default: ''}
+      - { name: image, label: Featured Image, widget: image, default: ''}
+      - { name: url, label: External URL, default: '' }
       - { name: body, label: Body, widget: markdown }
