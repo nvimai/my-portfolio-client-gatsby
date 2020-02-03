@@ -100,7 +100,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-env-variables`,
       options: {
-        whitelist: ["GOOGLE_ANALYTICS_ID"]
+        whitelist: ["GOOGLE_ANALYTICS_ID", "GOOGLE_RECAPTCHA_SITEKEY"]
       },
     },
     {
