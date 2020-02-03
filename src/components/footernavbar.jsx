@@ -57,7 +57,7 @@ export default class Footer extends Component {
                           <Link to="/blogs">Blogs</Link>
                         </li>
                         <li>
-                          <Link to="#">Contact</Link>
+                          <Link to="/#contact">Contact</Link>
                         </li>
                       </ul>
                     </div>
@@ -122,7 +122,7 @@ export default class Footer extends Component {
 
 const footerNavBarQuery = graphql`
   query FooterNavBarQuery {
-    avatar: file(absolutePath: { regex: "/logo-nuniversal.svg/" }) {
+    avatar: file(absolutePath: { regex: "/nvi-emoji.png/" }) {
       publicURL
     }
     site {

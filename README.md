@@ -1,16 +1,18 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
+  <a href="https://nvimai.com">
+    <img alt="Nvi Mai Portfolio" src="static/images/nvi-emoji.png" width="60" />
   </a>
 </p>
-<h1 align="center">
-  Gatsby's personal blog starter
-</h1>
+<a href="https://nvimai.com">
+  <h1 align="center">
+    Nvi's personal portfolio & blog
+  </h1>
+</a>
 
 <img alt="screesnhot" src="./screenshot.png">
 
-This starter is a fork of Gatsby Starter Blog, the most popular starter by far – with second place being Gatsby Starter Netlify CMS. So I decided to combine the 2!
+This site is a fork of [Gatsby Starter Blog](https://github.com/gatsbyjs/gatsby-starter-blog) and [Thomas Wang's Gatsby Personal Starter Blog](https://github.com/thomaswang/gatsby-personal-starter-blog), which I can build my own portfolio using ReactJS on front-end, Netlify CMS for creating posts.
 
 ## 🚀 Quick start
 
@@ -20,15 +22,15 @@ This starter is a fork of Gatsby Starter Blog, the most popular starter by far �
 
     ```sh
     # create a new Gatsby site using the blog starter
-    gatsby new my-blog-starter https://github.com/thomaswang/gatsby-personal-starter-blog
+    gatsby new my-portfolio https://github.com/nvimai/nvimai-gatsby-netlify
     ```
 
 1.  **Start developing.**
 
-    Navigate into your new site’s directory and start it up.
+    Navigate into your new portfolio site’s directory and start it up.
 
     ```sh
-    cd my-blog-starter/
+    cd my-portfolio/
     gatsby develop
     ```
 
@@ -54,6 +56,6 @@ Start from [this point](https://www.gatsbyjs.org/docs/sourcing-from-netlify-cms/
 
 ## 💫 Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/thomaswangio/gatsby-personal-starter-blog)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/nvimai/nvimai-gatsby-netlify)
 
 <!-- AUTO-GENERATED-CONTENT:END -->

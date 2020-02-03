@@ -12,9 +12,9 @@ function ProjectsSection () {
         return (
           <div className="columns is-multiline" style={{ margin: "20px 0 40px" }}>
             {
-              projects.map(({ node }) => {
+              projects.map(({ node }, i) => {
                 const project = node
-                return <ProjectCard {...project} />
+                return <ProjectCard {...project} key={i}/>
               })
             }
           </div>

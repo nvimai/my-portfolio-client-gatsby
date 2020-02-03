@@ -56,7 +56,7 @@ export default class TopNavBar extends Component {
                     alt={title + ' logo'}
                     style={{
                       marginBottom: '0',
-                      width: '50px'
+                      // width: '50px'
                     }}
                   />
                 </Link>
@@ -107,7 +107,7 @@ export default class TopNavBar extends Component {
 
 const navBarQuery = graphql`
   query NavBarQuery {
-    avatar: file(absolutePath: { regex: "/logo-nuniversal.svg/" }) {
+    avatar: file(absolutePath: { regex: "/nvi-emoji.png/" }) {
       publicURL
     }
     site {

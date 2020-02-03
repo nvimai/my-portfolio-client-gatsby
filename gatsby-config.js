@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env`,
+})
+
 module.exports = {
   siteMetadata: {
     // edit below
@@ -103,7 +107,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // edit below
-        trackingId: `UA-135013805-1`,
+        trackingId: process.env.GOOGLE_ANALYTICS_ID || ``,
       },
     },
     {
@@ -116,7 +120,7 @@ module.exports = {
         theme_color: `#2E2E2E`,
         display: `minimal-ui`,
         // edit below
-        icon: `content/assets/logo-nuniversal.svg`,
+        icon: `static/images/nvi-emoji.png`,
       },
     },
     {

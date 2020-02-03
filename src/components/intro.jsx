@@ -41,11 +41,6 @@ function Intro() {
                       </a>
                     </li>
                     <li>
-                      <a href="tel:+1 437-986-6892">
-                      <i className="fa fa-phone" aria-hidden="true"></i>+1 437-986-6892
-                      </a>
-                    </li>
-                    <li>
                       <i className="fa fa-map-marker" aria-hidden="true"></i>
                       Ontario, Canada
                     </li>

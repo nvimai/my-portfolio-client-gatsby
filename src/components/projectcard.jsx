@@ -18,7 +18,7 @@ export default class ProjectCard extends Component {
     const { slug } = this.state.fields
 
     return (
-      <div className="column is-one-quarter-tablet">
+      <div className="column is-one-quarter-tablet" key={this.state.key}>
         <div className="card-project card">
           <div className="card-image">
             <figure className="image">
@@ -42,9 +42,9 @@ export default class ProjectCard extends Component {
               <h5 className="name">{title}</h5>
               <h4 className="job-title">{position}</h4>
             </Link>
-            {tags ? tags.map((tag) => {
+            {tags ? tags.map((tag, i) => {
               return (
-                <p className="tag">{tag}</p>
+                <p className="tag" key={i}>{tag}</p>
               )
             }) : ''}
           </div>
