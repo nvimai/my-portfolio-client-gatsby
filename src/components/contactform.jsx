@@ -74,7 +74,7 @@ export default class ContactForm extends Component {
   render() {
     const { name, email, phone, message, gCaptcha, error, alertMessage } = this.state;
     return (
-      <section className="contact-form is-hidden">
+      <section className="contact-form">
         {/* <form method="POST" data-netlify="true"> */}
         <form onSubmit={this.handleSubmit} >
           <div className="field">
