@@ -29,7 +29,7 @@ class IndexPage extends React.Component {
           <h2 className="heading">Organizations</h2>
           <OranizationsSlider />
         </div>
-        <div id="contact" className="is-hidden">
+        <div id="contact">
           <h2 className="heading">Contact Me</h2>
           <p className="sub-heading">Don’t miss to contact me for more information, kindly fill the form below.</p>
           <ContactForm />

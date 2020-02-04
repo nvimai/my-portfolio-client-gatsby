@@ -58,16 +58,29 @@ export default class ContactForm extends Component {
       // If Captcha verify successfully
       console.log(name, email, phone, message, gCaptcha);
 
-
-      // Reset the state of variables
-      this.setState({
-        name: '',
-        email: '',
-        phone: '',
-        message: '',
-        alertMessage: 'Thanks for contacting me. I\'ll get back to you as soon as possible.',
-        error: false
-      })
+      fetch(`${process.env.API_ENDPOINT}/contacts`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: {
+          name,
+          email,
+          message
+        }
+      }).then(res => {
+        this.setState({
+          alertMessage: 'Thanks for contacting me. I\'ll get back to you as soon as possible.',
+          error: false
+        });
+      }).catch(err => {
+        console.log(err);
+        this.setState({
+          alertMessage: 'Something went wrong!!! Please try again later. Thank you!',
+          error: true
+        })
+      });
     }
   }
 
