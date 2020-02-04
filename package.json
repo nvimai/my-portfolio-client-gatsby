@@ -10,6 +10,7 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
+    "axios": "^0.19.2",
     "babel-plugin-styled-components": "^1.10.0",
     "bulma": "^0.8.0",
     "codemirror": "^5.50.2",

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import axios from 'axios';
+
 import "font-awesome/css/font-awesome.min.css";
 import "../styles/components/contactform.scss";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -58,30 +60,36 @@ export default class ContactForm extends Component {
       // If Captcha verify successfully
       console.log(name, email, phone, message, gCaptcha);
 
-      fetch(`${process.env.API_ENDPOINT}/contacts`, {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: {
-          name,
-          email,
-          message
-        }
-      }).then(res => {
-        this.setState({
-          alertMessage: 'Thanks for contacting me. I\'ll get back to you as soon as possible.',
-          error: false
+      axios
+        .post(`${process.env.API_ENDPOINT}/contacts`, { name, email, message }) // Post API call to send email
+        .then((response) => {
+          console.log(response);
+          if (response.data) {
+            this.setState({
+              alertMessage: 'Thanks for contacting me. I\'ll get back to you as soon as possible.',
+              error: false
+            });
+
+            // Reset the form
+            this.resetForm();
+          } else {
+            this.setState({
+              alertMessage: 'Something went wrong!!! Please try again later. Thank you!',
+              error: true
+            });
+          }
+        }).catch(err => {
+          console.log(err);
+          this.setState({
+            alertMessage: 'Something went wrong!!! Please try again later. Thank you!',
+            error: true
+          });
         });
-      }).catch(err => {
-        console.log(err);
-        this.setState({
-          alertMessage: 'Something went wrong!!! Please try again later. Thank you!',
-          error: true
-        })
-      });
     }
+  }
+
+  resetForm(){
+    document.getElementById('contact-form').reset();
   }
 
   render() {
@@ -89,7 +97,7 @@ export default class ContactForm extends Component {
     return (
       <section className="contact-form">
         {/* <form method="POST" data-netlify="true"> */}
-        <form onSubmit={this.handleSubmit} >
+        <form id="contact-form" onSubmit={this.handleSubmit} >
           <div className="field">
             <div className="control has-icons-left">
               <input className="input" name="name" type="text" required placeholder="First & Last Name" onChange={this.handleChange} />
