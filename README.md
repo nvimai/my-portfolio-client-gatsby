@@ -4,15 +4,13 @@
     <img alt="Nvi Mai Portfolio" src="static/images/nvi-emoji.png" width="60" />
   </a>
 </p>
-<a href="https://nvimai.com">
-  <h1 align="center">
-    Nvi's personal portfolio & blog
-  </h1>
-</a>
+<h1 align="center">
+  Nvi's personal portfolio & blog
+</h1>
 
 <img alt="screesnhot" src="./screenshot.png">
 
-This site is a fork of [Gatsby Starter Blog](https://github.com/gatsbyjs/gatsby-starter-blog) and [Thomas Wang's Gatsby Personal Starter Blog](https://github.com/thomaswang/gatsby-personal-starter-blog), which I can build my own portfolio using ReactJS on front-end, Netlify CMS for creating posts.
+This site is a fork of [Gatsby Starter Blog](https://github.com/gatsbyjs/gatsby-starter-blog) and [Thomas Wang's Gatsby Personal Starter Blog](https://github.com/thomaswang/gatsby-personal-starter-blog), which I can build my own portfolio using Gatsby React on front-end, GraphQL to get content from Markdown files, Netlify CMS for creating posts (JAMstack - JavaScript, APIs, & Markup).
 
 ## 🚀 Quick start
 

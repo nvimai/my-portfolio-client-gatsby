@@ -1,3 +1,6 @@
+/**
+ * Layout component that frames the whole site
+ */
 import React from "react"
 import styled from "styled-components"
 

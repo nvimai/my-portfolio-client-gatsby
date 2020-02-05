@@ -1,3 +1,10 @@
+/**
+ * Organizations section component that queries for data
+ * with Gatsby's StaticQuery component and using slick-slider
+ * (slick-carousel)
+ * See: https://www.gatsbyjs.org/docs/static-query/
+ */
+
 import React from "react";
 import Slider from "react-slick";
 import { StaticQuery, graphql } from "gatsby";
