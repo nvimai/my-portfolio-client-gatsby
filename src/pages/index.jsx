@@ -1,10 +1,10 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import OranizationsSlider from "../components/organizations"
-import Intro from "../components/intro"
-import ProjectsSection from "../components/projects"
-import ContactForm from "../components/contactform"
+import OranizationsSlider from "../components/sections/organizations"
+import Intro from "../components/sections/intro"
+import ProjectsSection from "../components/sections/projects"
+import ContactForm from "../components/forms/contactform"
 
 import "../styles/pages/index.scss"
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
-import '../styles/components/footernavbar.scss';
+import '../../styles/components/navbar/footernavbar.scss';
 
 export default class Footer extends Component {
 	constructor(props) {
@@ -39,7 +39,8 @@ export default class Footer extends Component {
                       alt={title + ' logo'}
                       style={{
                         marginBottom: '0',
-                        width: '120px'
+                        width: '120px',
+                        borderRadius: '50%'
                       }}
                     />
                   </Link>

@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ProjectCard from "../components/projectcard"
+import ProjectCard from "../components/elements/projectcard"
 
 class Projects extends React.Component {
   render() {

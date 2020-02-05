@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { StaticQuery, graphql, Link } from "gatsby"
-import '../styles/components/topnavbar.scss'
+import '../../styles/components/navbar/topnavbar.scss'
 
 export default class TopNavBar extends Component {
   constructor(props) {
@@ -56,7 +56,7 @@ export default class TopNavBar extends Component {
                     alt={title + ' logo'}
                     style={{
                       marginBottom: '0',
-                      // width: '50px'
+                      borderRadius: '50%'
                     }}
                   />
                 </Link>
@@ -72,14 +72,17 @@ export default class TopNavBar extends Component {
               <div id="navbarExampleTransparentExample" className={`navbar-menu ${this.state.menuOpened ? 'is-active' : ''}`}>
                 <div className="navbar-start">
                   <Link className="navbar-item" to="/">
-                    Home
-                </Link>
+                      Home
+                  </Link>
+                  <Link className="navbar-item" to="/#contact">
+                      Contact
+                  </Link>
                   <Link className="navbar-item" to="/projects">
-                    Projects
-                </Link>
+                      Projects
+                  </Link>
                   <Link className="navbar-item" to="/blogs">
-                    Blogs
-                </Link>
+                      Blogs
+                  </Link>
                 </div>
 
                 <div className="navbar-end">

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "gatsby";
 import Image from "./image";
-import '../styles/components/projectcard.scss';
+import '../../styles/components/elements/projectcard.scss';
 
 export default class ProjectCard extends Component {
 	constructor(props) {
@@ -18,7 +18,7 @@ export default class ProjectCard extends Component {
     const { slug } = this.state.fields
 
     return (
-      <div className="column is-one-quarter-tablet" key={this.state.key}>
+      <div className="column is-one-quarter-tablet">
         <div className="card-project card">
           <div className="card-image">
             <figure className="image">

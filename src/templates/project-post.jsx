@@ -2,10 +2,10 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
-import Bio from "../components/bio"
+import Bio from "../components/sections/bio"
 import Layout from "../components/layout"
-import Tag from "../components/tag"
-import Button from "../components/button"
+import Tag from "../components/elements/tag"
+import Button from "../components/elements/button"
 import SEO from "../components/seo"
 import "../styles/templates/project-post.scss"
 

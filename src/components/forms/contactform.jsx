@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 
 import "font-awesome/css/font-awesome.min.css";
-import "../styles/components/contactform.scss";
+import "../../styles/components/forms/contactform.scss";
 import ReCAPTCHA from "react-google-recaptcha";
 
 export default class ContactForm extends Component {
@@ -93,7 +93,7 @@ export default class ContactForm extends Component {
   }
 
   render() {
-    const { name, email, phone, message, gCaptcha, error, alertMessage } = this.state;
+    const { error, alertMessage } = this.state;
     return (
       <section className="contact-form">
         {/* <form method="POST" data-netlify="true"> */}

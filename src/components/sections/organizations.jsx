@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import { StaticQuery, graphql } from "gatsby";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../styles/components/organizations.scss";
+import "../../styles/components/sections/organizations.scss";
  
 
 function OranizationsSlider() {

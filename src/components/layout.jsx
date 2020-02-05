@@ -2,8 +2,8 @@ import React from "react"
 import styled from "styled-components"
 
 import '../styles/main.scss'
-import TopNavBar from "./topnavbar"
-import FooterNavBar from "./footernavbar"
+import TopNavBar from "./navbar/topnavbar"
+import FooterNavBar from "./navbar/footernavbar"
 
 class Layout extends React.Component {
   render() {

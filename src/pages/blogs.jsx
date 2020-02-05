@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
+import Bio from "../components/sections/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -22,8 +22,9 @@ class Blogs extends React.Component {
             const title = node.frontmatter.title || node.fields.slug
             return (
               <Link
-                  style={{ boxShadow: `none`, color: 'unset' }}
-                  to={`blogs${node.fields.slug}`}
+                style={{ boxShadow: `none`, color: 'unset' }}
+                to={`blogs${node.fields.slug}`}
+                key={node.fields.slug}
                 >
                 <article key={node.fields.slug}
                   style={{

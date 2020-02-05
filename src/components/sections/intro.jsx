@@ -8,7 +8,7 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
-import "../styles/components/intro.scss"
+import "../../styles/components/sections/intro.scss"
 
 function Intro() {
   return (

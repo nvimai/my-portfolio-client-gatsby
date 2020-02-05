@@ -1,6 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import ProjectCard from "../components/projectcard";
+import ProjectCard from "../elements/projectcard";
  
 
 function ProjectsSection () {
@@ -12,9 +12,9 @@ function ProjectsSection () {
         return (
           <div className="columns is-multiline" style={{ margin: "20px 0 40px" }}>
             {
-              projects.map(({ node }, i) => {
+              projects.map(({ node }) => {
                 const project = node
-                return <ProjectCard {...project} key={i}/>
+                return <ProjectCard {...project}/>
               })
             }
           </div>
