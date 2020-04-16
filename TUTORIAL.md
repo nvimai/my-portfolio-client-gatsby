@@ -68,6 +68,8 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 * Markdown: ```gatsby-plugin-mdx```
 * Sass: ```gatsby-plugin-sass```
 * PWA: ```gatsby-plugin-offline```
+1. Step 1: ```npm i [blugin name]```
+2. Step 2: Add plugin to ***plugins array*** in ```gatsby.config```
 
 ### Deploy Gatsby Site on Netlify
 

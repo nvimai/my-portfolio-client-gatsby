@@ -1,4 +1,5 @@
 @import "../../globalvariables.scss";
+@import "../../keyframes.scss";
 
 .intro {
   .slogan {
@@ -35,5 +36,9 @@
         font-size: 1.4rem;
       }
     }
+  }
+
+  .profile:hover {
+    animation: flipH 2s 0s infinite alternate ease-in-out;
   }
 }

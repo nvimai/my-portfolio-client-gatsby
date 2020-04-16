@@ -1,5 +1,8 @@
 @import "~bulma/bulma";
-
+@import "./keyframes.scss";
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-size: 16px;
   padding: 0;
@@ -31,5 +34,68 @@ body {
     h5 {
       font-size: 1.25rem;
     }
+  }
+  .container {
+    .padding-1 {
+      padding: 1rem;
+    }
+    .padding-2 {
+      padding: 2rem;
+    }
+    .margin-1 {
+      margin: 1rem;
+    }
+  }
+  .border-radius-30 {
+    border-radius: 30px;
+  }
+  .mh {
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    & h1 {
+      @media all and (max-width: 1216px){
+        padding-top: 70px;
+      }
+    }
+  }
+  // Gradient Background
+  .bg-gradient {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    color: #fff;
+    background-size: 400% 400%;
+    &.loading {
+      animation: loading 5s ease infinite;      
+    }
+    &:hover {
+      animation: loading 5s ease infinite;    
+    }
+  }
+  // The scrolling mouse svg
+  .scroll-wrapper {
+    svg {
+      height: 70px;
+      // left: 0;
+      position: absolute;
+      top: 0; 
+      width: 45px; 
+      &.mouse-inner {
+        transition-delay: 0.2s;
+        &:hover {
+          animation: scrolling 1s ease-in-out infinite;
+        }
+      }
+    }
+
+    rect {
+      fill: none;
+      stroke: #fff;
+      stroke-width: 2;
+      stroke-dasharray: 422, 0;
+      transition: all 0.35s linear;
+    }
+    
   }
 }

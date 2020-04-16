@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 
+import AnimatedButton from "../elements/animatedbutton";
 import "font-awesome/css/font-awesome.min.css";
 import "../../styles/components/forms/contactform.scss";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -15,7 +16,8 @@ export default class ContactForm extends Component {
       message: '',
       gCaptcha: '',
       error: false,
-      alertMessage: ''
+      alertMessage: '',
+      isLoading: false,
     };
     
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -59,32 +61,36 @@ export default class ContactForm extends Component {
     if(gCaptcha) {
       // If Captcha verify successfully
       console.log(name, email, phone, message, gCaptcha);
-
-      axios
-        .post(`${process.env.API_ENDPOINT}/contacts`, { name, email, message }) // Post API call to send email
-        .then((response) => {
-          console.log(response);
-          if (response.data) {
-            this.setState({
-              alertMessage: 'Thanks for contacting me. I\'ll get back to you as soon as possible.',
-              error: false
-            });
-
-            // Reset the form
-            this.resetForm();
-          } else {
+      this.setState({ isLoading: true });
+      setTimeout(() => {
+        axios
+          .post(`${process.env.API_ENDPOINT}/contacts`, { name, email, message }) // Post API call to send email
+          .then((response) => {
+            console.log(response);
+            if (response.data) {
+              this.setState({
+                alertMessage: 'Thanks for contacting me. I\'ll get back to you as soon as possible.',
+                error: false
+              });
+  
+              // Reset the form
+              this.resetForm();
+            } else {
+              this.setState({
+                alertMessage: 'Something went wrong!!! Please try again later. Thank you!',
+                error: true
+              });
+            }
+            this.setState({ isLoading: false });
+          }).catch(err => {
+            console.log(err);
             this.setState({
               alertMessage: 'Something went wrong!!! Please try again later. Thank you!',
               error: true
             });
-          }
-        }).catch(err => {
-          console.log(err);
-          this.setState({
-            alertMessage: 'Something went wrong!!! Please try again later. Thank you!',
-            error: true
+            this.setState({ isLoading: false });
           });
-        });
+      }, 2000);
     }
   }
 
@@ -93,11 +99,11 @@ export default class ContactForm extends Component {
   }
 
   render() {
-    const { error, alertMessage } = this.state;
+    const { error, alertMessage, isLoading } = this.state;
     return (
       <section className="contact-form">
         {/* <form method="POST" data-netlify="true"> */}
-        <form id="contact-form" onSubmit={this.handleSubmit} >
+        <form id="contact-form">
           <div className="field">
             <div className="control has-icons-left">
               <input className="input" name="name" type="text" required placeholder="First & Last Name" onChange={this.handleChange} />
@@ -134,12 +140,12 @@ export default class ContactForm extends Component {
           </div>
           <div className="field is-grouped is-grouped-centered">
             <div className="control">
-              <button className="button is-link">
+              <AnimatedButton className={`button btn btn-from-left btn-blue ${isLoading ? 'loading' : ''}`}  onClick={this.handleSubmit} >
                 <span className="icon">
                   <i className="fa fa-paper-plane" aria-hidden="true"></i>
                 </span>
                 <span>Send</span>
-              </button>
+              </AnimatedButton>
             </div>
           </div>
         </form>

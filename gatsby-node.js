@@ -1,5 +1,47 @@
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const axios = require('axios');
+const path = require(`path`);
+const { createFilePath } = require(`gatsby-source-filesystem`);
+
+// create a function to get the data from 'endpoint'
+const get = endpoint => axios.get(`${process.env.API_ENDPOINT}/${endpoint}`);
+
+const getProfiles = (profiles) => {
+  Promise.all(
+    profiles.map(async name => {
+      const { data: pokemon } = await get(`/pokemon/${name}`);
+      const abilities = await Promise.all(
+        pokemon.abilities.map(async ({ ability: { name: abilityName } }) => {
+          const { data: ability } = await get(`/ability/${abilityName}`);
+
+          return ability;
+        })
+      );
+
+      return { ...pokemon, abilities };
+    })
+  );
+  axios.get(`${process.env.API_ENDPOINT}/profiles`)
+    .then((res) => {
+      console.log(res);
+      if (res.data) {
+        let profile = res.data.profiles[0];
+        this.setState({
+          firstName: profile.firstName,
+          lastName: profile.lastName,
+          aliasName: profile.aliasName,
+          streetAddress: profile.streetAddress,
+          shortBio: profile.shortBio,
+          socials: profile.socials,
+          profilePictures: profile.profilePictures,
+          highlights: profile.highlights,
+          emails: profile.emails,
+          objectives: profile.objectives,
+        })
+      } else {
+        console.log(res);
+      }
+    });
+}
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions

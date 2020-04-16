@@ -1,10 +1,11 @@
 @import "../../globalvariables.scss";
+@import "../../keyframes.scss";
 
 .footer {
   background-color: $main-background;
 	padding: 1rem;
   font-size: 1.2rem;
-	color: #fff;
+	color: $white;
 	main {
 		padding-top: 2rem;
 	}
@@ -28,7 +29,7 @@
 					color: #ffffff99;
           font-size: 1.5em;
           &:hover {
-            color: #fff;
+            color: $white;
             border-bottom: unset;
           }
 				}
@@ -45,7 +46,7 @@
 	a {
 		color: #ffffffb3;
 		&:hover {
-      color: #fff;
+      color: $white;
 			border-bottom: unset;
 		}
   }
@@ -72,6 +73,39 @@
 		  justify-content: space-between;
 			flex-direction: row;
 			// text-align: center;
+		}
+	}
+
+
+	/* Plane style & animation */
+	.plane-container {
+		cursor: pointer;
+		position: fixed;
+		bottom: 50px;
+		right: 50px;
+		height: 55px;
+		width: 55px;
+		padding: 12px;
+		background-color: $main-background;
+		border-radius: 50%;
+		&:hover {
+			background: $white;
+		}	
+
+		.plane-svg__path {
+			fill: $white;
+		}
+		&:hover .plane-svg__path {
+			fill: $main-orange;
+		}
+
+		.plane.fly {
+			z-index: 100;
+			animation: planeFly 4s forwards;
+		}
+
+		.plane.fly .plane-svg__path {
+			fill: $main-orange;
 		}
 	}
 }

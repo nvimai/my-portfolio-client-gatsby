@@ -20,7 +20,16 @@ export default class Footer extends Component {
 			menuOpen: !state.menuOpen,
 			preload: false,
 		}));
-	};
+  };
+  
+
+  // Animation the plane when it's been clicked
+  flyClick = () => {
+    document.querySelector('.plane').classList.add('fly');
+    setTimeout(() => {
+      document.querySelector('.plane').classList.remove('fly');
+    }, 4000);
+  }
 
 	render() {
 		return (
@@ -112,6 +121,15 @@ export default class Footer extends Component {
                   <p><Link to="#">Privacy Policy</Link> | <Link to="#">Terms &#38; Conditions</Link></p>
                 </div>
               </aside>
+              <a className="plane-container" href="#" onClick={this.flyClick}>
+                <div className="plane-rotater" style={{ transform: `rotate(-90deg)` }}>
+                  <div className="plane">
+                    <svg className="plane-svg" viewBox="0 0 28 26">
+                      <path className="plane-svg__path" fill="#fff" d="M0,0 28,13 0,26 0,13 20,13 0,7z"></path>
+                    </svg>
+                  </div>
+                </div>
+              </a>
             </nav>
           )
         }}

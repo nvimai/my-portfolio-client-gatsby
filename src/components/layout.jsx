@@ -18,6 +18,7 @@ class Layout extends React.Component {
     return (
       <Wrapper>
         <div
+          className="container"
           style={{
             marginLeft: `auto`,
             marginRight: `auto`,

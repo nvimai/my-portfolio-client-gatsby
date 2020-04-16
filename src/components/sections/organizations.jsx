@@ -19,33 +19,30 @@ function OranizationsSlider() {
       query={oranizationsQuery}
       render={data => {
         const organizations = data.allMdx.edges
-        let settings = {
+        let slickSettings = {
           dots: true,
           autoplay: true,
           autoplaySpeed: 3000,
+          infinite: true,
+          speed: 500,
           arrows: true,
           pauseOnHover: true,
           slidesToShow: 4,
           slidesToScroll: 1,
           responsive: [
             {
-                breakpoint: 768, // tablet breakpoint
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1
-                }
-            },
-            {
-                breakpoint: 480, // mobile breakpoint
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
+              breakpoint: 769, // mobile breakpoint
+              settings: {
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true,
+              }
             }
           ]
         }
         return (
-          <Slider className="organizations" {...settings}>
+          <Slider className="organizations" {...slickSettings}>
             {organizations.map(({node}) => {
               const { title, image, startdate, enddate, position, present } = node.frontmatter
               return (
