@@ -1,0 +1,125 @@
+@import "../../globalvariables.scss";
+@import "../../keyframes.scss";
+
+.footer {
+  background-color: $main-background;
+  padding: 1rem;
+  font-size: 1.2rem;
+  color: $white;
+  h4 {
+    color: $white;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+  }
+  main {
+    padding-top: 2rem;
+  }
+  .brand {
+    text-align: center;
+    .logo {
+      max-width: 280px;
+    }
+  }
+  .social {
+    text-align: center;
+    ul {
+      list-style: none;
+      font-size: 1.5rem;
+      li {
+        display: inline-flex;
+        justify-content: space-between;
+        a {
+          margin: 0.2em;
+          display: block;
+          color: #ffffff99;
+          font-size: 1.5em;
+          &:hover {
+            color: $white;
+            border-bottom: unset;
+          }
+        }
+      }
+    }
+  }
+  .navigation {
+    text-align: center;
+    li {
+      margin: 0;
+    }
+  }
+  aside {
+    flex-direction: column;
+    text-align: center;
+  }
+  a {
+    color: #ffffffb3;
+    &:hover {
+      color: $white;
+      border-bottom: unset;
+    }
+  }
+
+  .copyright {
+    strong {
+      color: $white;
+    }
+  }
+
+  @media all and (min-width: 769px) {
+    font-size: 1rem;
+    .brand {
+      .logo {
+        max-width: 200px;
+      }
+    }
+    .social {
+      text-align: left;
+      ul {
+        font-size: 1.2rem;
+      }
+    }
+    .navigation {
+      text-align: left;
+    }
+    aside {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      // text-align: center;
+    }
+  }
+
+  /* Plane style & animation */
+  .plane-container {
+    cursor: pointer;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    height: 55px;
+    width: 55px;
+    padding: 12px;
+    background-color: $main-background;
+    border-radius: 50%;
+    border: none;
+    &:hover {
+      background: $white;
+    }
+
+    .plane-svg__path {
+      fill: $white;
+    }
+    &:hover .plane-svg__path {
+      fill: $main-orange;
+    }
+
+    .plane.fly {
+      z-index: 100;
+      animation: planeFly 4s forwards;
+    }
+
+    .plane.fly .plane-svg__path {
+      fill: $main-orange;
+    }
+  }
+}

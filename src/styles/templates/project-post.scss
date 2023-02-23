@@ -1,0 +1,26 @@
+@import "../globalvariables.scss";
+
+.project-post {
+  h1 {
+    line-height: 2.2rem;
+    font-size: 2rem;
+  }
+
+	.tag {
+		margin: 1px;
+    padding: 2px;
+    border-radius: 2px;
+    background: $main-background;
+    color: white;
+    font-size: 10px;
+  }
+  
+	.date {
+    margin: 10px 0;
+		padding: 2px;
+		font-size: 0.9rem;
+		.end {
+			color: #86bd57;
+		}
+	}
+}

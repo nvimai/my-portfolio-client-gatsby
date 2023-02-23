@@ -9,19 +9,38 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Nvi Mai Portfolio`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Nvi Mai`,
+      summary: `who is Nhat Vietnam ^.^, lives and works in Canada building useful things.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    bio: `My name is Nvi, which is Nhat Vietnam ^.^`,
+    description: `My personal portfolio website build on Gatsby ReactJS and Netlify.`,
+    siteUrl: `https://nvimai.com`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `nvimai`,
+      github: `nvimai`,
+      linkedin: `nhatmai`,
+      instagram: `nvimai`,
+      email: `contact@nvimai.com`
     },
   },
   plugins: [
-    `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        sassOptions: {
+          includePaths: [`${__dirname}/styles`],
+        }
+      },
+    },
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -32,10 +51,26 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/content/projects`,
+        name: `projects`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/organizations`,
+        name: `organizations`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/static/images`,
+      },
+    },
+    `gatsby-plugin-image`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -108,17 +143,32 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        allowList: [
+          "GOOGLE_ANALYTICS_ID",
+          "GOOGLE_RECAPTCHA_SITEKEY",
+        ]
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // edit below
+        trackingId: process.env.GOOGLE_ANALYTICS_ID || 'UA-135013805-1',
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `Gatsby`,
+        name: `Nvi Mai Portfolio`,
+        short_name: `NviMaiPortfolio`,
         start_url: `/`,
         background_color: `#ffffff`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
+        theme_color: `#2E2E2E`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        // edit below
+        icon: `static/images/nvi-emoji.png`,
       },
     },
   ],

@@ -1,0 +1,54 @@
+@import "../../globalvariables.scss";
+
+.card-project {
+	text-align: center;
+	.image {
+		overflow: hidden;
+	// 	.photo {
+	// 		height: 100%;
+	// 		width: auto;
+	// 		margin: auto;
+	// 	}
+	}
+
+	.name {
+		margin: 5px 0;
+		font-weight: 500;
+		line-height: 1.2;
+		font-size: 0.9rem;
+		height: 2.2rem;
+		overflow: hidden;
+	}
+
+	.job-title {
+		margin: 7px 0;
+		font-weight: 500;
+		line-height: 1.1;
+		font-size: 1.2rem;
+		max-height: 2.8rem;
+		overflow: hidden;
+	}
+
+	.tag {
+		margin: 1px;
+    padding: 2px;
+    border-radius: 2px;
+    background: $main-background;
+    color: white;
+    font-size: 10px;
+	}
+
+	.date {
+		padding: 2px;
+		font-size: 0.8rem;
+		.end {
+			color: #86bd57;
+		}
+	}
+	.card-content {
+		padding: .5rem;
+	}
+	.card-footer {
+		display: block;
+	}
+}

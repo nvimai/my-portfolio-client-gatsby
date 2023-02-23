@@ -1,0 +1,91 @@
+
+
+@keyframes spinAround {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes loading {
+  0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes scrolling {
+  0% {
+    transform: translatey(-10px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+	100% {
+		transform: translatey(20px);
+    opacity: 0;
+	}
+}
+
+@keyframes floating {
+  0% {
+		transform: translatey(20px);
+	}
+	50% {
+		transform: translatey(-10px);
+	}
+	100% {
+		transform: translatey(20px);
+	}
+}
+
+@keyframes planeFly {
+  20% {
+    transform: translate(25rem, 3rem) rotate(10deg) scale(0.5);
+  }
+
+  25% {
+    transform: translate(35rem, -10rem) rotate(-30deg) scale(0.5);
+  }
+
+  30% {
+    transform: translate(28rem, -15rem) rotate(-120deg) scale(0.6);
+  }
+
+  40% {
+    transform: translate(20rem, -15rem) rotate(-160deg) scale(0.6);
+  }
+
+  50% {
+    transform: translate(10rem, -30rem) rotate(-260deg) scale(0.6);
+  }
+
+  65% {
+    transform: translate(0rem, -10rem) rotate(-200deg) scale(0.8);
+  }
+
+  85% {
+    transform: translate(-15rem, -10rem) rotate(-240deg) scale(0.9);
+  }
+
+  90% {
+    transform: translate(-25rem, 0) rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes flipH {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(-180deg); }
+}

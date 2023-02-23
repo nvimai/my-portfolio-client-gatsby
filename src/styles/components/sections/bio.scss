@@ -1,0 +1,16 @@
+@import "../../globalvariables.scss";
+@import "../../keyframes.scss";
+
+.bio {
+  display: flex;
+
+  .media {
+    max-height: 300px;
+    overflow: hidden;
+
+    img {
+      max-width: 60px;
+      max-height: 60px;
+    }
+  }
+}

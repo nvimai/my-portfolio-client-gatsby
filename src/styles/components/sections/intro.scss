@@ -1,0 +1,55 @@
+@import "../../globalvariables.scss";
+@import "../../keyframes.scss";
+
+.intro {
+  .name {
+    color: $white;
+    font-weight: 400;
+  }
+
+  .slogan {
+    color: #6c757d;
+    text-transform: uppercase;
+    font-style: italic;
+  }
+
+  .profile {
+    text-align: center;
+  }
+
+  .contact {
+    margin: 20px 0;
+    a {
+      color: $white;
+    }
+
+    i {
+      margin-right: 10px;
+    }
+
+    &-info {
+      li {
+        margin: 0;
+      }
+    }
+
+    &-social {
+      margin-top: 10px;
+      a {
+        color: #fff;
+        padding: .25rem .5rem;
+        font-size: .875rem;
+        line-height: 1.5;
+      }
+
+      i {
+        margin: unset;
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  .profile:hover {
+    animation: flipH 2s 0s infinite alternate ease-in-out;
+  }
+}

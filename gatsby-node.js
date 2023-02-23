@@ -8,7 +8,9 @@ const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // Define the template for blog post
-const blogPost = path.resolve(`./src/templates/blog-post.js`)
+// const projectPost = path.resolve(`./src/templates/project-post.jsx`)
+// const organizationPost = path.resolve(`./src/templates/organization-post.jsx`)
+const blogPost = path.resolve(`./src/templates/blog-post.jsx`)
 
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
@@ -18,12 +20,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(`
-    {
-      allMarkdownRemark(sort: { frontmatter: { date: ASC } }, limit: 1000) {
+    query {
+      allMarkdownRemark(sort: { frontmatter: { enddate: DESC } }, limit: 1000) {
         nodes {
           id
           fields {
             slug
+          }
+          frontmatter {
+            title
+            categories
           }
         }
       }
@@ -46,18 +52,45 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   if (posts.length > 0) {
     posts.forEach((post, index) => {
-      const previousPostId = index === 0 ? null : posts[index - 1].id
-      const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
-
-      createPage({
-        path: post.fields.slug,
-        component: blogPost,
-        context: {
-          id: post.id,
-          previousPostId,
-          nextPostId,
-        },
-      })
+      // const previousPostId = index === 0 ? null : posts[index - 1].id
+      // const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
+      // if (post.frontmatter.categories?.includes('projects')) {
+      //   createPage({
+      //     path: `/projects${post.fields.slug}`,
+      //     component: projectPost,
+      //     context: {
+      //       slug: post.fields.slug,
+      //       // previous,
+      //       // next,
+      //     },
+      //   })
+      //   return;
+      // }
+      // if (post.frontmatter.categories?.includes('organizations')) {
+      //   createPage({
+      //     path: `/organizations${post.fields.slug}`,
+      //     component: organizationPost,
+      //     context: {
+      //       slug: post.fields.slug,
+      //       // previous,
+      //       // next,
+      //     },
+      //   })
+      //   return;
+      // }
+      // if (post.frontmatter.categories?.includes('blog')) {
+        createPage({
+          path: `${post.fields.slug}`,
+          component: blogPost,
+          context: {
+            id: post.id,
+            slug: post.fields.slug,
+            // previousPostId,
+            // nextPostId,
+          },
+        })
+        return;
+      // }
     })
   }
 }
