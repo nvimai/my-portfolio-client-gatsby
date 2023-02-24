@@ -56,7 +56,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       filter: { frontmatter: { categories: { eq: "organizations" }}},
-      sort: { frontmatter: { date: DESC } }
+      sort: { frontmatter: { enddate: DESC } }
     ) {
       nodes {
         excerpt
@@ -70,6 +70,7 @@ export const pageQuery = graphql`
           title
           categories
           position
+          image
         }
       }
     }

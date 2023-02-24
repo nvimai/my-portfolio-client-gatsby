@@ -3,12 +3,12 @@ title: Freelancer
 position: Full-stack Developer
 startdate: '2015-01-01T00:00:00.000Z'
 present: true
-enddate: 2020-01-12T04:47:08.876Z
+enddate:
 categories:
   - organizations
   - experience
 location: ' '
-image: "self-employment.jpeg"
+image: "nvi-emoji.png"
 url: 'https://nvimai.com'
 ---
 * Full-stack web developer, proficient marketing tools, strong teamwork were required to play the role.

@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import { MDXRenderer } from "gatsby-plugin-mdx"
+// import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Bio from "../components/sections/bio"
 import Layout from "../components/layout"
@@ -9,7 +9,7 @@ import Button from "../components/elements/button"
 import Seo from "../components/seo"
 import "../styles/templates/project-post.scss"
 
-const ProjectPostTemplate = ({ data, location }) => {
+const ProjectPostTemplate = ({ data, location, children }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || 'Title';
   // const { previous, next } = pageContext
@@ -30,11 +30,15 @@ const ProjectPostTemplate = ({ data, location }) => {
           )
         }) : ''}
       <hr />
-      <MDXRenderer>{post.html}</MDXRenderer>
+      <section
+        dangerouslySetInnerHTML={{ __html: post.html }}
+        itemProp="articleBody"
+      />
+      {/* <MDXRenderer>{post.html}</MDXRenderer> */}
       <br />
       {!url ? '' :
         <a href={url}>
-          <Button>Click here for more details <i class="fa fa-link" aria-hidden="true"></i></Button>
+          <Button>Click here for more details <i className="fa fa-link" aria-hidden="true"></i></Button>
         </a>
       }
       <hr />

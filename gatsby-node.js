@@ -8,8 +8,8 @@ const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // Define the template for blog post
-// const projectPost = path.resolve(`./src/templates/project-post.jsx`)
-// const organizationPost = path.resolve(`./src/templates/organization-post.jsx`)
+const projectPost = path.resolve(`./src/templates/project-post.jsx`)
+const organizationPost = path.resolve(`./src/templates/organization-post.jsx`)
 const blogPost = path.resolve(`./src/templates/blog-post.jsx`)
 
 /**
@@ -30,6 +30,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           frontmatter {
             title
             categories
+            enddate
           }
         }
       }
@@ -54,33 +55,33 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     posts.forEach((post, index) => {
       // const previousPostId = index === 0 ? null : posts[index - 1].id
       // const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
-      // if (post.frontmatter.categories?.includes('projects')) {
-      //   createPage({
-      //     path: `/projects${post.fields.slug}`,
-      //     component: projectPost,
-      //     context: {
-      //       slug: post.fields.slug,
-      //       // previous,
-      //       // next,
-      //     },
-      //   })
-      //   return;
-      // }
-      // if (post.frontmatter.categories?.includes('organizations')) {
-      //   createPage({
-      //     path: `/organizations${post.fields.slug}`,
-      //     component: organizationPost,
-      //     context: {
-      //       slug: post.fields.slug,
-      //       // previous,
-      //       // next,
-      //     },
-      //   })
-      //   return;
-      // }
-      // if (post.frontmatter.categories?.includes('blog')) {
+      if (post.frontmatter.categories?.includes('projects')) {
         createPage({
-          path: `${post.fields.slug}`,
+          path: `/projects${post.fields.slug}`,
+          component: projectPost,
+          context: {
+            slug: post.fields.slug,
+            // previous,
+            // next,
+          },
+        })
+        return;
+      }
+      if (post.frontmatter.categories?.includes('organizations')) {
+        createPage({
+          path: `/organizations${post.fields.slug}`,
+          component: organizationPost,
+          context: {
+            slug: post.fields.slug,
+            // previous,
+            // next,
+          },
+        })
+        return;
+      }
+      if (post.frontmatter.categories?.includes('blog')) {
+        createPage({
+          path: `blog${post.fields.slug}`,
           component: blogPost,
           context: {
             id: post.id,
@@ -90,7 +91,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           },
         })
         return;
-      // }
+      }
     })
   }
 }

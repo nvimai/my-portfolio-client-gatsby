@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-import { MDXRenderer } from "gatsby-plugin-mdx"
+// import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Bio from "../components/sections/bio"
 import Layout from "../components/layout"
@@ -25,7 +25,11 @@ const BlogPostTemplate = ({ data, location }) => {
           marginBottom: `1rem`,
         }}
       />
-      <MDXRenderer>{post.html}</MDXRenderer>
+      <section
+        dangerouslySetInnerHTML={{ __html: post.html }}
+        itemProp="articleBody"
+      />
+      {/* <MDXRenderer>{post.html}</MDXRenderer> */}
       <hr
         style={{
           marginBottom: `1rem`,
