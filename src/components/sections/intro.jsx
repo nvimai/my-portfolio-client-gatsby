@@ -2,6 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import "../../styles/components/sections/intro.scss";
 import AnimatedButton from '../elements/animatedbutton';
+import { OutboundLink } from 'gatsby-plugin-google-gtag';
 
 const Intro = () => {
   const data = useStaticQuery(pageQuery);
@@ -39,9 +40,9 @@ const Intro = () => {
           <div className="contact">
             <ul className="contact-info">
               <li>
-                <a href={'mailto:' + emails[0]}>
+                <OutboundLink target="_blank" href={'mailto:' + emails[0]}>
                   <i className="fa fa-envelope"></i>{emails[0]}
-                </a>
+                </OutboundLink>
               </li>
               <li>
                 <i className="fa fa-map-marker" aria-hidden="true"></i>
@@ -49,12 +50,12 @@ const Intro = () => {
               </li>
             </ul>
             <div className="contact-social buttons is-grouped" >
-              <a className="button is-dark" href={`https://github.com/${social.github}`} title="Nvi's GitHub">
+              <OutboundLink target="_blank" className="button is-dark" href={`https://github.com/${social.github}`} title="Nvi's GitHub">
                 <i className="fa fa-github" aria-hidden="true"></i>
-              </a>
-              <a className="button is-link" href={`https://www.linkedin.com/in/${social.linkedin}`} title="Nvi's LinkedIn">
+              </OutboundLink>
+              <OutboundLink target="_blank" className="button is-link" href={`https://www.linkedin.com/in/${social.linkedin}`} title="Nvi's LinkedIn">
                 <i className="fa fa-linkedin" aria-hidden="true"></i>
-              </a>
+              </OutboundLink>
             </div>
           </div>
         </div>
