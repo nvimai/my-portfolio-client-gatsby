@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
+import { OutboundLink } from 'gatsby-plugin-google-gtag';
 import '../../styles/components/navbar/footernavbar.scss';
 
 const FooterNavBar = () => {
@@ -71,24 +72,24 @@ const FooterNavBar = () => {
           <h4>More About Me</h4>
           <ul>
             <li>
-              <a className="social-item" href={`https://github.com/${social.github}`} title="Nvi's GitHub">
+              <OutboundLink target="_blank" className="social-item" href={`https://github.com/${social.github}`} title="Nvi's GitHub">
                 <i className="fa fa-github" aria-hidden="true"></i>
-              </a>
+              </OutboundLink>
             </li>
             <li>
-              <a className="social-item" href={`https://www.linkedin.com/in/${social.linkedin}`} title="Nvi's LinkedIn">
+              <OutboundLink target="_blank" className="social-item" href={`https://www.linkedin.com/in/${social.linkedin}`} title="Nvi's LinkedIn">
                 <i className="fa fa-linkedin-square" aria-hidden="true"></i>
-              </a>
+              </OutboundLink>
             </li>
             <li>
-              <a className="social-item" href={`https://www.instagram.com/${social.instagram}`} title="Nvi's Instagram">
+              <OutboundLink target="_blank" className="social-item" href={`https://www.instagram.com/${social.instagram}`} title="Nvi's Instagram">
                 <i className="fa fa-instagram" aria-hidden="true"></i>
-              </a>
+              </OutboundLink>
             </li>
             <li>
-              <a className="social-item" href={`mailto:${social.email}`} title="email to Nvi">
+              <OutboundLink target="_blank" className="social-item" href={`mailto:${social.email}`} title="email to Nvi">
                 <i className="fa fa-envelope-square" aria-hidden="true"></i>
-              </a>
+              </OutboundLink>
             </li>
           </ul>
         </div>
