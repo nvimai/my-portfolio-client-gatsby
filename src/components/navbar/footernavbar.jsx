@@ -16,7 +16,7 @@ const FooterNavBar = () => {
 
   const data = useStaticQuery(pageQuery);
 
-  const { title, bio, author, social } = data.site.siteMetadata
+  const { title, author, social } = data.site.siteMetadata
   return (
     <nav className="footer">
       <main className="columns"> 
@@ -33,7 +33,7 @@ const FooterNavBar = () => {
               }}
             />
           </Link>
-          <div>{bio}</div>
+          <div>{author.summary}</div>
         </div>
         <div className="navigation column">
           <div className="columns is-mobile">
@@ -124,7 +124,6 @@ const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        bio
         author {
           name
           summary

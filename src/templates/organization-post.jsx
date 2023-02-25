@@ -1,17 +1,16 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-// import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Bio from "../components/sections/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import '../styles/templates/organization-post.scss';
 
-const OrganizationPostTemplate = ({ data, location }) => {
-
-  const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata?.title || 'Title';
-  const { title, description, startdate, enddate, present } = post.frontmatter
-  // const { previous, next } = pageContext
+const OrganizationPostTemplate = ({
+  data: { previous, next, site, markdownRemark: post }, location 
+}) => {
+  const siteTitle = site.siteMetadata?.title || 'Title';
+  const { title, description, startdate, date, present } = post.frontmatter
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -33,17 +32,17 @@ const OrganizationPostTemplate = ({ data, location }) => {
           display: `block`,
         }}
       >
-        { present ? 'Present' : enddate }
+        { present ? 'Present' : date }
       </p>
       <section
+        className="organization-post"
         dangerouslySetInnerHTML={{ __html: post.html }}
         itemProp="articleBody"
       />
-      {/* <MDXRenderer>{post.html}</MDXRenderer> */}
       <hr />
       <Bio />
 
-      {/* <ul
+      <ul
         style={{
           display: `flex`,
           flexWrap: `wrap`,
@@ -66,7 +65,7 @@ const OrganizationPostTemplate = ({ data, location }) => {
             </Link>
           )}
         </li>
-      </ul> */}
+      </ul>
     </Layout>
   )
 }
@@ -74,7 +73,11 @@ const OrganizationPostTemplate = ({ data, location }) => {
 export default OrganizationPostTemplate
 
 export const pageQuery = graphql`
-  query OrganizationPostBySlug($slug: String!) {
+  query PostBySlug(
+    $slug: String!
+    $previousId: String
+    $nextId: String
+  ) {
     site {
       siteMetadata {
         title
@@ -88,9 +91,25 @@ export const pageQuery = graphql`
         title
         startdate(formatString: "MMMM DD, YYYY")
         present
-        enddate(formatString: "MMMM DD, YYYY")
+        date(formatString: "MMMM DD, YYYY")
         categories
         position
+      }
+    }
+    previous: markdownRemark(id: { eq: $previousId }) {
+      fields {
+        slug
+      }
+      frontmatter {
+        title
+      }
+    }
+    next: markdownRemark(id: { eq: $nextId }) {
+      fields {
+        slug
+      }
+      frontmatter {
+        title
       }
     }
   }

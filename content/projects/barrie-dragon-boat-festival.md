@@ -2,7 +2,7 @@
 title: Barrie Dragon Boat Festival
 position: Supporter
 startdate: "2018-08-25T00:00:00.000Z"
-enddate: "2018-08-25T00:00:00.000Z"
+date: "2018-08-25T00:00:00.000Z"
 location: Barrie, Ontario, Ca
 categories: ["projects", "volunteer"]
 tags: ["Services"]

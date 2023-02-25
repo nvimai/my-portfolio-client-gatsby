@@ -12,88 +12,79 @@ const projectPost = path.resolve(`./src/templates/project-post.jsx`)
 const organizationPost = path.resolve(`./src/templates/organization-post.jsx`)
 const blogPost = path.resolve(`./src/templates/blog-post.jsx`)
 
+const categoryVariables = ['blog', 'organizations', 'projects'];
+const components = (type) => {
+  switch(type) {
+    case categoryVariables[0]: return blogPost
+    case categoryVariables[1]: return organizationPost
+    case categoryVariables[2]: return projectPost
+    default: return blogPost
+  }
+}
+
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-  // Get all markdown blog posts sorted by date
-  const result = await graphql(`
-    query {
-      allMarkdownRemark(sort: { frontmatter: { enddate: DESC } }, limit: 1000) {
-        nodes {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            categories
-            enddate
+  const results = {};
+
+  await Promise.all(
+    categoryVariables.map(async (type) => {
+      // Get all markdown blog posts sorted by date
+      const result = await graphql(`
+        query ($type: String) {
+          allMarkdownRemark(
+            sort: { frontmatter: { date: DESC } },
+            limit: 1000,
+            filter: { frontmatter: { categories: { eq: $type } } }
+          ) {
+            nodes {
+              id
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+                categories
+                date
+              }
+            }
           }
         }
-      }
-    }
-  `)
+      `, { type });
 
-  if (result.errors) {
-    reporter.panicOnBuild(
-      `There was an error loading your blog posts`,
-      result.errors
-    )
-    return
-  }
-
-  const posts = result.data.allMarkdownRemark.nodes
-
-  // Create blog posts pages
-  // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
-  // `context` is available in the template as a prop and as a variable in GraphQL
-
-  if (posts.length > 0) {
-    posts.forEach((post, index) => {
-      // const previousPostId = index === 0 ? null : posts[index - 1].id
-      // const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
-      if (post.frontmatter.categories?.includes('projects')) {
-        createPage({
-          path: `/projects${post.fields.slug}`,
-          component: projectPost,
-          context: {
-            slug: post.fields.slug,
-            // previous,
-            // next,
-          },
-        })
-        return;
+      if (result.errors) {
+        reporter.panicOnBuild(
+          `There was an error loading your blog posts`,
+          result.errors
+        )
+        return
       }
-      if (post.frontmatter.categories?.includes('organizations')) {
-        createPage({
-          path: `/organizations${post.fields.slug}`,
-          component: organizationPost,
-          context: {
-            slug: post.fields.slug,
-            // previous,
-            // next,
-          },
-        })
-        return;
-      }
-      if (post.frontmatter.categories?.includes('blog')) {
-        createPage({
-          path: `blog${post.fields.slug}`,
-          component: blogPost,
-          context: {
-            id: post.id,
-            slug: post.fields.slug,
-            // previousPostId,
-            // nextPostId,
-          },
-        })
-        return;
-      }
+      results[type] = result;
     })
-  }
+  );
+
+  categoryVariables.forEach((type) => {
+    const posts = results[type].data.allMarkdownRemark.nodes;
+      
+    posts.forEach((post, index) => {
+      const previousId = index === 0 ? null : posts[index - 1].id
+      const nextId = index === posts.length - 1 ? null : posts[index + 1].id
+      createPage({
+        path: `/${type}${post.fields.slug}`,
+        component: components(type),
+        context: {
+          id: post.id,
+          slug: post.fields.slug,
+          previousId,
+          nextId,
+        },
+      })
+      return;
+    });
+  });
 }
 
 /**
@@ -134,7 +125,16 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type Author {
       name: String
+      firstName: String
+      lastName: String
+      aliasName: String
+      streetAddress: String
       summary: String
+      shortBio: String
+      profilePictures: [String],
+      highlights: [String],
+      emails: [String],
+      objectives: [String],
     }
 
     type Social {

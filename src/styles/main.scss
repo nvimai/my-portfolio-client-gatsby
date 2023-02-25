@@ -1,5 +1,7 @@
 @import "~bulma/bulma";
 @import "./keyframes.scss";
+@import "./globalvariables.scss";
+
 html {
   scroll-behavior: smooth;
 }

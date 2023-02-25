@@ -2,7 +2,7 @@
 title: Computer Science Paper
 position: Researcher
 startdate: "2013-09-01T00:00:00.000Z"
-enddate: "2015-10-01T00:00:00.000Z"
+date: "2015-10-01T00:00:00.000Z"
 location: Ho Chi Minh City, Vietnam
 categories: ["projects", "education"]
 tags: ["Computer Science", "C/C++", "Image processing", "Face Detection", "Pose Estimation", "Landmark Localization"]

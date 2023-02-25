@@ -2,7 +2,7 @@
 title: Mai Han Corporation
 position: Digital Marketer
 startdate: "2015-06-01T00:00:00.000Z"
-enddate: "2017-10-20T00:00:00.000Z"
+date: "2017-10-20T00:00:00.000Z"
 categories: ["organizations", "experience"]
 location: Ho Chi Minh city, Vietnam
 image: "maihan.vn.png"

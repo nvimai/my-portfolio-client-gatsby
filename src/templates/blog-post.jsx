@@ -1,15 +1,15 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-// import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Bio from "../components/sections/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import '../styles/templates/blog-post.scss';
 
-const BlogPostTemplate = ({ data, location }) => {
-  const post = data.markdownRemark;
-  const siteTitle = data.site.siteMetadata?.title || 'Title';
-  // const { previous, next } = pageContext
+const BlogPostTemplate = ({
+  data: { previous, next, site, markdownRemark: post }, location 
+}) => {
+  const siteTitle = site.siteMetadata?.title || 'Title';
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -26,17 +26,17 @@ const BlogPostTemplate = ({ data, location }) => {
         }}
       />
       <section
+        className="blog-post"
         dangerouslySetInnerHTML={{ __html: post.html }}
         itemProp="articleBody"
       />
-      {/* <MDXRenderer>{post.html}</MDXRenderer> */}
       <hr
         style={{
           marginBottom: `1rem`,
         }}
       />
       <Bio />
-      {/* <ul
+      <ul
         style={{
           display: `flex`,
           flexWrap: `wrap`,
@@ -59,7 +59,7 @@ const BlogPostTemplate = ({ data, location }) => {
             </Link>
           )}
         </li>
-      </ul> */}
+      </ul>
     </Layout>
   )
 }
@@ -67,7 +67,11 @@ const BlogPostTemplate = ({ data, location }) => {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query BlogPostBySlug(
+    $slug: String!
+    $previousId: String
+    $nextId: String
+  ) {
     site {
       siteMetadata {
         title
@@ -81,6 +85,22 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+      }
+    }
+    previous: markdownRemark(id: { eq: $previousId }) {
+      fields {
+        slug
+      }
+      frontmatter {
+        title
+      }
+    }
+    next: markdownRemark(id: { eq: $nextId }) {
+      fields {
+        slug
+      }
+      frontmatter {
+        title
       }
     }
   }

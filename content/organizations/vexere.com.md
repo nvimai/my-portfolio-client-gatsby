@@ -2,7 +2,7 @@
 title: VeXeRe.com
 position: Back-end Developer
 startdate: "2015-01-01T00:00:00.000Z"
-enddate: "2015-06-01T00:00:00.000Z"
+date: "2015-06-01T00:00:00.000Z"
 categories: ["organizations", "experience"]
 location: Ho Chi Minh city, Vietnam
 image: "vexere.com.png"

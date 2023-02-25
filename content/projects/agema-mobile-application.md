@@ -3,7 +3,7 @@ title: Agema Mobile Application
 position: Full-stack Developer
 startdate: "2019-05-01T00:00:00.000Z"
 present: true
-enddate: 
+date: 
 location: Barrie, Ontario, Ca
 categories: ["projects", "work"]
 tags: ["App", "Full-stack", "Angular", ".Net Core", "RestAPI", "MS SQL server", "Ionic Cordova"]

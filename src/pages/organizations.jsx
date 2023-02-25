@@ -28,7 +28,7 @@ const Organizations = ({ data, location }) => {
                   {title}
                 </Link>
               </h3>
-              <small>{frontmatter.present ? 'Present' : frontmatter.enddate}</small>
+              <small>{frontmatter.present ? 'Present' : frontmatter.date}</small>
               <p
                 dangerouslySetInnerHTML={{
                   __html: frontmatter.description || excerpt,
@@ -56,7 +56,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       filter: { frontmatter: { categories: { eq: "organizations" }}},
-      sort: { frontmatter: { enddate: DESC } }
+      sort: { frontmatter: { date: DESC } }
     ) {
       nodes {
         excerpt
@@ -66,7 +66,7 @@ export const pageQuery = graphql`
         frontmatter {
           startdate(formatString: "MMM YYYY")
           present
-          enddate(formatString: "MMM YYYY")
+          date(formatString: "MMM YYYY")
           title
           categories
           position

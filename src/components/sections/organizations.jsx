@@ -3,9 +3,7 @@ import Slider from "react-slick";
 import { useStaticQuery, graphql } from "gatsby";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../../styles/components/sections/organizations.scss";
-import Image from "../elements/image";
- 
+import "../../styles/components/sections/organizations.scss"; 
 
 const OranizationsSlider = () => {
 
@@ -36,13 +34,15 @@ const OranizationsSlider = () => {
   return (
     <Slider className="organizations" {...slickSettings}>
       {organizations.map(({frontmatter, fields}) => {
-        const { title, image, startdate, enddate, position, present } = frontmatter
+        const { title, image, startdate, date, position, present } = frontmatter
         return (
           <div className="organization" key={fields.slug}>
-            <Image filename={image} className="photo" alt={title + ' logo'} />
+            <figure className="image">
+              <img className="photo" src={`/images/${image}`} alt={title + ' logo'} />
+            </figure>
             <h5 className="name">{title}</h5>
             <h4 className="job-title">{position}</h4>
-            <p className="date">{startdate ? startdate : 'Present'} - <span className="end">{present ? 'Present' : enddate }</span></p>
+            <p className="date">{startdate ? startdate : 'Present'} - <span className="end">{present ? 'Present' : date }</span></p>
           </div>
         )
       })}
@@ -62,7 +62,7 @@ const pageQuery = graphql`
     }
     allMarkdownRemark(
       filter: { frontmatter: { categories: { eq: "organizations" }}},
-      sort: { frontmatter: { enddate: DESC } }
+      sort: { frontmatter: { date: DESC } }
     ) {
       nodes {
         excerpt
@@ -72,7 +72,7 @@ const pageQuery = graphql`
         frontmatter {
           startdate(formatString: "MMM YYYY")
           present
-          enddate(formatString: "MMM YYYY")
+          date(formatString: "MMM YYYY")
           title
           categories
           position

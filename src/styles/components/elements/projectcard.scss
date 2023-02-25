@@ -2,13 +2,18 @@
 
 .card-project {
 	text-align: center;
+
 	.image {
 		overflow: hidden;
-	// 	.photo {
-	// 		height: 100%;
-	// 		width: auto;
-	// 		margin: auto;
-	// 	}
+		height: 100px;
+		display: flex;
+		justify-content: center;
+
+		.photo {
+			height: 100%;
+			width: auto;
+			max-width: unset;
+		}
 	}
 
 	.name {
@@ -31,23 +36,26 @@
 
 	.tag {
 		margin: 1px;
-    padding: 2px;
-    border-radius: 2px;
-    background: $main-background;
-    color: white;
-    font-size: 10px;
+		padding: 2px;
+		border-radius: 2px;
+		background: $main-background;
+		color: white;
+		font-size: 10px;
 	}
 
 	.date {
 		padding: 2px;
 		font-size: 0.8rem;
+
 		.end {
 			color: #86bd57;
 		}
 	}
+
 	.card-content {
 		padding: .5rem;
 	}
+
 	.card-footer {
 		display: block;
 	}

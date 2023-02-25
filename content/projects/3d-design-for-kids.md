@@ -2,7 +2,7 @@
 title: Tech Program (3D Design for kids)
 position: Assistant
 startdate: "2018-10-20T00:00:00.000Z"
-enddate: "2018-10-20T00:00:00.000Z"
+date: "2018-10-20T00:00:00.000Z"
 location: Barrie, Ontario, Ca
 categories: ["projects", "volunteer"]
 tags: ["Services", "Design"]

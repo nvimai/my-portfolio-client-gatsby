@@ -3,7 +3,7 @@ title: Expogain International Inc.
 position: Technical Advisor
 startdate: "2019-05-01T00:00:00.000Z"
 present: true
-enddate:
+date:
 categories: ["organizations", "experience"]
 location: Barrie, Ontario, Ca
 image: "expogain.png"

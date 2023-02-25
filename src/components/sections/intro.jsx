@@ -4,26 +4,20 @@ import "../../styles/components/sections/intro.scss";
 import AnimatedButton from '../elements/animatedbutton';
 
 const Intro = () => {
-  const state = {
-    firstName: 'Nvi',
-    lastName: 'Mai',
-    aliasName: '',
-    streetAddress: 'Canada',
-    shortBio: 'CURIOUS DEVELOPER, PASSIONATE WEB DESIGNER',
-    socials: {
-      github: 'https://github.com/nvimai',
-      linkedin: 'https://www.linkedin.com/in/nhatmai/'
-    },
-    profilePictures: ['https://lh3.googleusercontent.com/CPfRKG_LZv5pTLiNjtPCPITIM9u7RA9jt7P8RXX0Vt56iK_C1sQDEJVWiKDcxY8T5w3H7qt4ZVtzOB5YnbcHmIsFswfkuCIX2bB0Wxi2dwoO1E73di6HUffzxZ70zHrbyDKSBHVsb9NoNgzIZUZuYXsdwgTDHuci4PRIKTkRyDmiNrE9ntcempAl-N2fMbjxafVZ0e_P6KwrE8yAj3CBzeL6UB-Hng2ezShtF5TGmZ2exFjd5PZzI5oFKfaUbVJiHUnru61rKF4iWf2PeFnGq3X8MYGt7zGQRk4OeW_-kPfjqO6S8qr1qqv3AQkhhw2dPN8KRmeTZaere0Ed7cI7KuPeqtPudSCC5Mn_X0FtwMIVHMnqbZBR_0_1vKgIVth7SPCfZISoDDiaw8FLiumU-YewDWMFDyfOT85knZ5T7OmunO394QY_nX0BqFLbKJSyHXORzW--KgbJYRfqjiluSrIYmpMsjqEC_BVWw6jiOS_xl-5JkAdk4dknxx-1blakOMzlXM60Ry3ghlcYLjppTAokwttiH9_CHXWkaAu9sr2s_rpQZ-Wd2SywRfk0VR3MWwPFs_BOoPuBRL_QZqW8BR0ME0NlenrB597rEMQgOmjUbF7OEABtHKqxFU-AdH6XbB_eRtckZjkfNNcY9ZQFBsc5_GsB63z40gS5ZNeyy8RiH8OJ54cJn18TZfoYJVE5DAxCydV1oQPchW1p2e9g961hbg=s1234-no'],
-    highlights: ['Curious Developer', 'Passionate Web Designer'],
-    emails: ['contact@nvimai.com'],
-    objectives: ['Working on Front-end, Back-end, Full-stack developer those which are programming languages and frameworks: C#, ASP.net, PHP, JavaScript, SQL, WordPress, MongoDB, Express.js, React, React Native, VueJS, AngularJS, Node.JS and beyond.'],
-  }
-
-  const { firstName, lastName, streetAddress, socials, highlights, emails, objectives } = state;
   const data = useStaticQuery(pageQuery);
+  const { author:
+    {
+      name,
+      firstName,
+      lastName,
+      streetAddress,
+      highlights,
+      emails,
+      objectives
+    },
+    social
+  } = data.site.siteMetadata;
 
-  const { author } = data.site.siteMetadata
   return (
     <div className={'intro bg-gradient padding-1 border-radius-30'}>
       <div className="brief columns">
@@ -32,7 +26,7 @@ const Intro = () => {
             className="profile"
             formats={["auto", "webp", "avif"]}
             src={data.avatar.publicURL}
-            alt={author?.name || 'alt'}
+            alt={name || 'alt'}
             style={{
               marginBottom: '0',
               borderRadius: '50%'
@@ -55,10 +49,10 @@ const Intro = () => {
               </li>
             </ul>
             <div className="contact-social buttons is-grouped" >
-              <a className="button is-dark" href={socials.github} title="Nvi's GitHub">
+              <a className="button is-dark" href={`https://github.com/${social.github}`} title="Nvi's GitHub">
                 <i className="fa fa-github" aria-hidden="true"></i>
               </a>
-              <a className="button is-link" href={socials.linkedin} title="Nvi's LinkedIn">
+              <a className="button is-link" href={`https://www.linkedin.com/in/${social.linkedin}`} title="Nvi's LinkedIn">
                 <i className="fa fa-linkedin" aria-hidden="true"></i>
               </a>
             </div>
@@ -98,7 +92,16 @@ const pageQuery = graphql`
       siteMetadata {
         author {
           name
+          firstName
+          lastName
+          aliasName
+          streetAddress
           summary
+          shortBio
+          profilePictures
+          highlights
+          emails
+          objectives
         }
         social {
           twitter,

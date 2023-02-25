@@ -2,7 +2,7 @@
 title: "Kids Learning Code: Webmaking with HTML & CSS for ages 9-12."
 position: Mentor
 startdate: "2019-03-16T00:00:00.000Z"
-enddate: "2019-03-16T00:00:00.000Z"
+date: "2019-03-16T00:00:00.000Z"
 location: Canada Learning Code
 categories: ["projects", "volunteer"]
 tags: ["Web","Mentor","HTML","CSS"]

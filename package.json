@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-blog",
-  "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "name": "nvimai-gatsby-netlify",
+  "private": false,
+  "description": "A personal blog starter for a blog powered by Netlify CMS, based on the default blog starter",
+  "version": "1.1.0",
+  "author": "Nvi Mai <contact@nvimai.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/nvimai/my-portfolio-client-gatsby/issues"
   },
   "dependencies": {
     "@fontsource/merriweather": "^4.5.14",
@@ -47,14 +47,14 @@
   "devDependencies": {
     "prettier": "^2.8.4"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/nvimai/my-portfolio-client-gatsby#readme",
   "keywords": [
     "gatsby"
   ],
   "license": "0BSD",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/nvimai/my-portfolio-client-gatsby.git"
   },
   "scripts": {
     "build": "gatsby build",

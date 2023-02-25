@@ -117,7 +117,7 @@ const ContactForm = () => {
         <div className="field">
           <ReCAPTCHA 
             className="gRecaptcha" 
-            sitekey={process.env.GOOGLE_RECAPTCHA_SITEKEY || '6LewG5IUAAAAAOeOimiL1nWwQ_9Pm9GsIUCpCNDv'}
+            sitekey={process.env.GOOGLE_RECAPTCHA_SITEKEY}
             onChange={onChangeGCaptcha}
           />
         </div>

@@ -3,6 +3,9 @@
  *
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
  */
+require("dotenv").config({
+  path: `.env`,
+})
 
 /**
  * @type {import('gatsby').GatsbyConfig}
@@ -12,9 +15,21 @@ module.exports = {
     title: `Nvi Mai Portfolio`,
     author: {
       name: `Nvi Mai`,
+      firstName: 'Nvi',
+      lastName: 'Mai',
+      aliasName: '',
+      streetAddress: 'Canada',
       summary: `who is Nhat Vietnam ^.^, lives and works in Canada building useful things.`,
+      shortBio: 'CURIOUS DEVELOPER, PASSIONATE WEB DESIGNER',
+      socials: {
+        github: 'https://github.com/nvimai',
+        linkedin: 'https://www.linkedin.com/in/nhatmai/'
+      },
+      profilePictures: ['/images/nvi-emoji.png', '/images/nhat-profile.jpg'],
+      highlights: ['Curious Developer', 'Passionate Web Designer'],
+      emails: ['contact@nvimai.com'],
+      objectives: ['Working on Front-end, Back-end, Full-stack developer those which are programming languages and frameworks: C#, ASP.net, PHP, JavaScript, SQL, WordPress, MongoDB, Express.js, React, React Native, VueJS, AngularJS, Node.JS and beyond.'],
     },
-    bio: `My name is Nvi, which is Nhat Vietnam ^.^`,
     description: `My personal portfolio website build on Gatsby ReactJS and Netlify.`,
     siteUrl: `https://nvimai.com`,
     social: {
@@ -115,14 +130,17 @@ module.exports = {
                 return Object.assign({}, node.frontmatter, {
                   description: node.excerpt,
                   date: node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + node.fields.slug,
+                  url: site.siteMetadata.siteUrl + '/blog' + node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + '/blog' + node.fields.slug,
                   custom_elements: [{ "content:encoded": node.html }],
                 })
               })
             },
             query: `{
-              allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
+              allMarkdownRemark(
+                filter: { frontmatter: { categories: { eq: "blog" }}},
+                sort: {frontmatter: {date: DESC}}
+              ) {
                 nodes {
                   excerpt
                   html
@@ -137,7 +155,7 @@ module.exports = {
               }
             }`,
             output: "/rss.xml",
-            title: "Gatsby Starter Blog RSS Feed",
+            title: "Nvis Portfolio RSS Feed",
           },
         ],
       },
@@ -148,6 +166,7 @@ module.exports = {
         allowList: [
           "GOOGLE_ANALYTICS_ID",
           "GOOGLE_RECAPTCHA_SITEKEY",
+          "API_ENDPOINT",
         ]
       },
     },
@@ -155,14 +174,32 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // edit below
-        trackingId: process.env.GOOGLE_ANALYTICS_ID || 'UA-135013805-1',
+        trackingId: process.env.GOOGLE_ANALYTICS_ID,
+        // Defines where to place the tracking script - `true` in the head and `false` in the body
+        head: false,
+        // Setting this parameter is optional
+        anonymize: true,
+        // Setting this parameter is also optional
+        respectDNT: true,
+        // Avoids sending pageview hits from custom paths
+        exclude: ["/preview/**", "/do-not-track/me/too/"],
+        // Defers execution of google analytics script after page load
+        defer: false,
+        // Delays sending pageview hits on route update (in milliseconds)
+        pageTransitionDelay: 0,
+        // Any additional optional fields
+        sampleRate: 5,
+        siteSpeedSampleRate: 10,
+        cookieDomain: "nvimai.com",
+        // defaults to false
+        enableWebVitalsTracking: true,
       },
     },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Nvi Mai Portfolio`,
-        short_name: `NviMaiPortfolio`,
+        short_name: `Nvis Portfolio`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#2E2E2E`,

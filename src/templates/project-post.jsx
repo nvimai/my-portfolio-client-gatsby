@@ -1,6 +1,5 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-// import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Bio from "../components/sections/bio"
 import Layout from "../components/layout"
@@ -9,11 +8,11 @@ import Button from "../components/elements/button"
 import Seo from "../components/seo"
 import "../styles/templates/project-post.scss"
 
-const ProjectPostTemplate = ({ data, location, children }) => {
-  const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata?.title || 'Title';
-  // const { previous, next } = pageContext
-  const { title, description, tags, startdate, enddate, present, url } = post.frontmatter
+const ProjectPostTemplate = ({
+  data: { previous, next, site, markdownRemark: post }, location 
+}) => {
+  const siteTitle = site.siteMetadata?.title || 'Title';
+  const { title, description, tags, startdate, date, present, url } = post.frontmatter
 
   return (
     <Layout location={location} title={siteTitle} childName="project-post">
@@ -23,7 +22,7 @@ const ProjectPostTemplate = ({ data, location, children }) => {
       />
       <Link to="/projects">&#8592; All projects</Link>
       <h1>{title}</h1>
-      <p className="date">{startdate ? startdate : 'Present'} - <span className="end">{present ? 'Present' : enddate }</span></p>
+      <p className="date">{startdate ? startdate : 'Present'} - <span className="end">{present ? 'Present' : date }</span></p>
       {tags ? tags.map((tag, idx) => {
           return (
             <Tag className="tag" key={idx}>{tag}</Tag>
@@ -31,10 +30,10 @@ const ProjectPostTemplate = ({ data, location, children }) => {
         }) : ''}
       <hr />
       <section
+        className="project-post"
         dangerouslySetInnerHTML={{ __html: post.html }}
         itemProp="articleBody"
       />
-      {/* <MDXRenderer>{post.html}</MDXRenderer> */}
       <br />
       {!url ? '' :
         <a href={url}>
@@ -44,7 +43,7 @@ const ProjectPostTemplate = ({ data, location, children }) => {
       <hr />
       <Bio />
 
-      {/* <ul
+      <ul
         style={{
           display: `flex`,
           flexWrap: `wrap`,
@@ -67,7 +66,7 @@ const ProjectPostTemplate = ({ data, location, children }) => {
             </Link>
           )}
         </li>
-      </ul> */}
+      </ul>
     </Layout>
   )
 }
@@ -75,14 +74,14 @@ const ProjectPostTemplate = ({ data, location, children }) => {
 export default ProjectPostTemplate
 
 export const pageQuery = graphql`
-  query ProjectPostBySlug($slug: String!) {
+  query PostBySlug(
+    $slug: String!
+    $previousId: String
+    $nextId: String
+  ) {
     site {
       siteMetadata {
         title
-        author {
-          name
-          summary
-        }
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -94,10 +93,26 @@ export const pageQuery = graphql`
         position
         startdate(formatString: "MMM YYYY")
         present
-        enddate(formatString: "MMM YYYY")
+        date(formatString: "MMM YYYY")
         categories
         tags
         url
+      }
+    }
+    previous: markdownRemark(id: { eq: $previousId }) {
+      fields {
+        slug
+      }
+      frontmatter {
+        title
+      }
+    }
+    next: markdownRemark(id: { eq: $nextId }) {
+      fields {
+        slug
+      }
+      frontmatter {
+        title
       }
     }
   }

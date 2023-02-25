@@ -1,28 +1,16 @@
 import React from 'react';
 import { Link } from "gatsby";
 import '../../styles/components/elements/projectcard.scss';
-import Image from './image';
 
 const ProjectCard = (props) => {
-  const { title, position, startdate, enddate, present, tags, image } = props.frontmatter;
+  const { title, position, startdate, date, present, tags, image } = props.frontmatter;
   const { slug } = props.fields;
   return (
     <div className="column is-one-quarter-tablet">
       <div className="card-project card">
         <div className="card-image">
           <figure className="image">
-            {/* <img className="photo" src={image} alt={title} /> */}
-            <Image
-              formats={["auto", "webp", "avif"]}
-              layout="fixed"
-              filename={image}
-              alt={title}
-              imgStyle={{
-                height: `100%`,
-                width: `auto`,
-                margin: `auto`,
-              }}
-            />
+            <img className="photo" src={`/images/${image}`} alt={title} />
           </figure>
         </div>
         <div className="card-content">
@@ -40,7 +28,7 @@ const ProjectCard = (props) => {
           }) : ''}
         </div>
         <div className="card-footer">
-          <p className="date">{startdate ? startdate : 'Present'} - <span className="end">{present ? 'Present' : enddate }</span></p>
+          <p className="date">{startdate ? startdate : 'Present'} - <span className="end">{present ? 'Present' : date }</span></p>
         </div>
       </div>
     </div>

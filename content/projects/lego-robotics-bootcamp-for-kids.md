@@ -2,7 +2,7 @@
 title: Lego Robotics Bootcamp for Kids
 position: Assistant
 startdate: "2018-11-10T00:00:00.000Z"
-enddate: "2018-11-10T00:00:00.000Z"
+date: "2018-11-10T00:00:00.000Z"
 location: Barrie, Ontario, Ca
 categories: ["projects", "volunteer"]
 tags: ["Computer Science", "Mentor", "Volunteer"]
