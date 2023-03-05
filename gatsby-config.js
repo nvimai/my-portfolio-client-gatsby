@@ -7,6 +7,8 @@ require("dotenv").config({
   path: `.env`,
 })
 
+const siteUrl = process.env.URL || `https://nvimai.com`
+
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
@@ -31,7 +33,7 @@ module.exports = {
       objectives: ['Working on Front-end, Back-end, Full-stack developer those which are programming languages and frameworks: C#, ASP.net, PHP, JavaScript, SQL, WordPress, MongoDB, Express.js, React, React Native, VueJS, AngularJS, Node.JS and beyond.'],
     },
     description: `My personal portfolio website build on Gatsby ReactJS and Netlify.`,
-    siteUrl: `https://nvimai.com`,
+    siteUrl: siteUrl,
     social: {
       twitter: `nvimai`,
       github: `nvimai`,
@@ -158,6 +160,58 @@ module.exports = {
             title: "Nvis Portfolio RSS Feed",
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        query: `
+        {
+          allSitePage {
+            nodes {
+              path
+            }
+          }
+  				allMarkdownRemark(
+            filter: { frontmatter: { categories: { in: ["blog", "projects", "organizations"] }}},
+          ) {
+            nodes {
+              fields {
+                slug
+              }
+              frontmatter {
+                categories
+                date
+                startdate
+              }
+            }
+          }
+        }
+      `,
+        resolveSiteUrl: () => siteUrl,
+        resolvePages: ({
+          allSitePage: { nodes: allPages },
+          allMarkdownRemark: { nodes: allNodes },
+        }) => {
+          const nodeMap = allNodes.reduce((acc, node) => {
+            const { fields: { slug }, frontmatter: { categories } } = node;
+            acc[`/${categories[0]}${slug}`] = node.frontmatter;
+
+            return acc;
+          }, {})
+
+          return allPages.map(page => {
+            console.log(page)
+            return { ...page, ...nodeMap[page.path] }
+          })
+        },
+        serialize: ({ path, date, startdate }) => {
+          console.log(date, startdate)
+          return {
+            url: path,
+            lastmod: date || new Date(),
+          }
+        },
       },
     },
     {

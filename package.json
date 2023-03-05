@@ -28,7 +28,7 @@
     "gatsby-plugin-react-helmet": "^6.6.0",
     "gatsby-plugin-sass": "^6.6.0",
     "gatsby-plugin-sharp": "^5.7.0",
-    "gatsby-plugin-sitemap": "^6.6.0",
+    "gatsby-plugin-sitemap": "^6.7.0",
     "gatsby-plugin-styled-components": "^6.6.0",
     "gatsby-remark-images": "^7.6.0",
     "gatsby-remark-prismjs": "^7.6.0",
