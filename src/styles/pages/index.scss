@@ -1,7 +1,7 @@
 @import "../globalvariables.scss";
 
 .heading {
-  color: $main-orange !important;
+  color: $main-orange;
   font-size: 26px;
   font-weight: 500;
   text-align: center;
@@ -9,16 +9,24 @@
   position: relative;
   margin: 30px 0 50px;
 
+  &::before {
+    display: none;
+  }
+
   &::after {
     content: "";
     width: 100px;
     position: absolute;
     margin: 0 auto;
-    height: 4px;
+    height: 2px;
     background: $main-blue;
+    color: $main-blue;
     left: 0;
     right: 0;
-    bottom: -20px;
+  }
+
+  &:hover {
+    color: $main-orange;
   }
 }
 
@@ -43,7 +51,7 @@
 
 .contact-form {
   padding: 0;
-  
+
   @media screen and (min-width: 769px) {
     padding: 0 25%;
   }

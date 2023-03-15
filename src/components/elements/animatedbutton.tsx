@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from 'gatsby'
 import '../../styles/components/elements/button.scss'
-import { OutboundLink } from "gatsby-plugin-google-analytics";
+import { OutboundLink } from 'gatsby-plugin-google-gtag';
 
 export default function AnimatedButton(props: any) {
 
@@ -13,7 +13,7 @@ export default function AnimatedButton(props: any) {
       {children}
     </Link>
     :
-    <OutboundLink {...props}>
+    <OutboundLink target="_blank" {...props}>
       {children}
     </OutboundLink>
   )

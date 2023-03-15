@@ -1,6 +1,9 @@
 ---
 title: Why Us?
-date: "2015-01-01T00:00:00.000Z"
+startdate: "2015-01-01T00:00:00.000Z"
+date:
+categories: ["blog"]
+tags: ["Software Developer", "Outsourcing", "Contract"]
 ---
 ## Practical | Reliable | Hard-working
 

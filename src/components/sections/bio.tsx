@@ -1,6 +1,7 @@
 import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import "font-awesome/css/font-awesome.min.css"
+import { OutboundLink } from 'gatsby-plugin-google-gtag';
 import "../../styles/components/sections/bio.scss";
 
 type BioData = {
@@ -45,18 +46,18 @@ const Bio = () => {
           </div>
           <nav className="level is-mobile">
             <div className="level-left">
-              <a className="level-item" href={`https://github.com/${social.github}`} title="Nvi's GitHub">
+              <OutboundLink target="_blank" className="level-item" href={`https://github.com/${social.github}`} title="Nvi's GitHub">
                 <span className="icon is-small"><i className="fa fa-github"></i></span>
-              </a>
-              <a className="level-item" href={`https://www.linkedin.com/in/${social.linkedin}`} title="Nvi's LinkedIn">
+              </OutboundLink>
+              <OutboundLink target="_blank" className="level-item" href={`https://www.linkedin.com/in/${social.linkedin}`} title="Nvi's LinkedIn">
                 <span className="icon is-small"><i className="fa fa-linkedin"></i></span>
-              </a>
-              <a className="level-item" href={`https://www.instagram.com/${social.instagram}`} title="Nvi's Instagram">
+              </OutboundLink>
+              <OutboundLink target="_blank" className="level-item" href={`https://www.instagram.com/${social.instagram}`} title="Nvi's Instagram">
                 <span className="icon is-small"><i className="fa fa-instagram"></i></span>
-              </a>
-              <a className="level-item" href={`mailto:${social.email}`} title="email to Nvi">
+              </OutboundLink>
+              <OutboundLink target="_blank" className="level-item" href={`mailto:${social.email}`} title="email to Nvi">
                 <span className="icon is-small"><i className="fa fa-envelope"></i></span>
-              </a>
+              </OutboundLink>
             </div>
           </nav>
         </div>

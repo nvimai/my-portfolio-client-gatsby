@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import Tag from "../components/elements/tag"
 import Button from "../components/elements/button"
 import Seo from "../components/seo"
+import { OutboundLink } from 'gatsby-plugin-google-gtag';
 import "../styles/templates/project-post.scss"
 
 const ProjectPostTemplate = ({
@@ -36,9 +37,9 @@ const ProjectPostTemplate = ({
       />
       <br />
       {!url ? '' :
-        <a href={url}>
+        <OutboundLink target="_blank" href={url}>
           <Button>Click here for more details <i className="fa fa-link" aria-hidden="true"></i></Button>
-        </a>
+        </OutboundLink>
       }
       <hr />
       <Bio />

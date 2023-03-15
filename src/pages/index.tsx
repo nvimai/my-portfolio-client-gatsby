@@ -26,11 +26,15 @@ const IndexPage = ({ location }: PageProps<Props>) => {
         <Intro />
       </div>
       <div id="projects">
-        <h2><AnimatedButton className="heading btn btn-topbottom" internal='true' href="/projects">Projects</AnimatedButton></h2>
+        <AnimatedButton internal='true' href="/projects">
+          <h2 className="heading btn btn-topbottom">Projects</h2>
+        </AnimatedButton>
         <ProjectsSection />
       </div>
       <div id="organizations">
-        <h2><AnimatedButton className="heading btn btn-topbottom" internal='true' href="/organizations">Organizations</AnimatedButton></h2>
+        <AnimatedButton internal='true' href="/organizations">
+          <h2 className="heading btn btn-topbottom">Organizations</h2>
+        </AnimatedButton>
         <OranizationsSlider />
       </div>
       <div id="contact">

@@ -211,29 +211,8 @@ const config: GatsbyConfig = {
         resolvePages: ({
           allSitePage: { nodes: allPages },
           allMarkdownRemark: { nodes: allNodes },
-        }: {
-          allSitePage: {
-            nodes: {
-              path: string;
-            }[];
-          }
-          allMarkdownRemark: {
-            nodes: {
-              html: string;
-              fields: {
-                slug: string;
-              };
-              frontmatter: {
-                date: Date;
-                startdate: Date;
-                categories: string[];
-              };
-            }[]
-          }
         }) => {
-          const nodeMap = allNodes.reduce((acc: {
-            [key: string]: {}
-          }, node) => {
+          const nodeMap = allNodes.reduce((acc, node) => {
             const { fields: { slug }, frontmatter: { categories } } = node;
             acc[`/${categories[0]}${slug}`] = node.frontmatter;
 
@@ -244,12 +223,7 @@ const config: GatsbyConfig = {
             return { ...page, ...nodeMap[page.path] }
           })
         },
-        serialize: ({ path, date, startdate }: {
-          path: string;
-          date: Date;
-          startdate: Date;
-        }) => {
-          console.log(date, startdate)
+        serialize: ({ path, date, startdate }) => {
           return {
             url: path,
             lastmod: date || new Date(),
@@ -268,28 +242,28 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        // edit below
-        trackingId: process.env.GOOGLE_ANALYTICS_ID,
-        // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: false,
-        // Setting this parameter is optional
-        anonymize: true,
-        // Setting this parameter is also optional
-        respectDNT: true,
-        // Avoids sending pageview hits from custom paths
-        exclude: ["/preview/**", "/do-not-track/me/too/"],
-        // Defers execution of google analytics script after page load
-        defer: false,
-        // Delays sending pageview hits on route update (in milliseconds)
-        pageTransitionDelay: 0,
-        // Any additional optional fields
-        sampleRate: 5,
-        siteSpeedSampleRate: 10,
-        cookieDomain: "nvimai.com",
-        // defaults to false
-        enableWebVitalsTracking: true,
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          process.env.GOOGLE_ANALYTICS_ID,
+        ],
+        // This object gets passed directly to the gtag config command
+        // This config will be shared across all trackingIds
+        gtagConfig: {
+          // optimize_id: "OPT_CONTAINER_ID",
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
+        // This object is used for configuration specific to this plugin
+        pluginConfig: {
+          // Puts tracking script in the head instead of the body
+          head: false,
+          // Setting this parameter is also optional
+          respectDNT: true,
+          // Delays processing pageview events on route update (in milliseconds)
+          delayOnRouteUpdate: 0,
+        },
       },
     },
     {
