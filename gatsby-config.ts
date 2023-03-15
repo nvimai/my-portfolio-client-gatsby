@@ -1,3 +1,5 @@
+import { GatsbyConfig } from 'gatsby';
+
 /**
  * Configure your Gatsby site with this file.
  *
@@ -7,12 +9,9 @@ require("dotenv").config({
   path: `.env`,
 })
 
-const siteUrl = process.env.URL || `https://nvimai.com`
+const siteUrl = process.env.URL || `https://nvimai.com`;
 
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
-module.exports = {
+const config: GatsbyConfig = {
   siteMetadata: {
     title: `Nvi Mai Portfolio`,
     author: {
@@ -127,7 +126,27 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
+            serialize: ({ query: { site, allMarkdownRemark } }: {
+              query: {
+                site: {
+                  siteMetadata: {
+                    siteUrl: string
+                  }
+                },
+                allMarkdownRemark: {
+                  nodes: {
+                    excerpt: string;
+                    html: string;
+                    fields: {
+                      slug: string;
+                    };
+                    frontmatter: {
+                      date: Date;
+                    };
+                  }[]
+                }
+              }
+            }) => {
               return allMarkdownRemark.nodes.map(node => {
                 return Object.assign({}, node.frontmatter, {
                   description: node.excerpt,
@@ -199,14 +218,11 @@ module.exports = {
 
             return acc;
           }, {})
-
           return allPages.map(page => {
-            console.log(page)
             return { ...page, ...nodeMap[page.path] }
           })
         },
         serialize: ({ path, date, startdate }) => {
-          console.log(date, startdate)
           return {
             url: path,
             lastmod: date || new Date(),
@@ -264,3 +280,5 @@ module.exports = {
     },
   ],
 }
+
+export default config;

@@ -1,14 +1,29 @@
-/**
- * SEO component that queries for data 
- */
+import React from 'react';
+import Helmet from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
 
-import React from "react"
-import PropTypes from "prop-types"
-import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
 
-const Seo = ({ description, lang, meta, keywords, title }) => {
-  const { site } = useStaticQuery(
+type Props = {
+  description?: string;
+  lang?: string;
+  meta?: HTMLMetaElement,
+  keywords: string[],
+  title: string,
+}
+
+const Seo = ({ description, lang, meta, keywords, title }: Props) => {
+  const { site }: {
+    site: {
+      siteMetadata: {
+        title: string;
+        description: string;
+        author: {
+          name: string;
+          summary: string;
+        }
+      }
+    }
+  } = useStaticQuery(
     graphql`
       query {
         site {
@@ -57,7 +72,7 @@ const Seo = ({ description, lang, meta, keywords, title }) => {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: site.siteMetadata.author.name,
         },
         {
           name: `twitter:title`,
@@ -71,12 +86,12 @@ const Seo = ({ description, lang, meta, keywords, title }) => {
         .concat(
           keywords.length > 0
             ? {
-                name: `keywords`,
-                content: keywords.join(`, `),
-              }
+              name: `keywords`,
+              content: keywords.join(`, `),
+            }
             : []
         )
-        .concat(meta)}
+        .concat(meta as HTMLMetaElement)}
     />
   )
 }
@@ -86,14 +101,6 @@ Seo.defaultProps = {
   meta: [],
   keywords: [],
   description: ``,
-}
-
-Seo.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired,
 }
 
 export default Seo

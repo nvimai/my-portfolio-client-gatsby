@@ -3,44 +3,42 @@ import { Link, graphql } from "gatsby"
 
 import Bio from "../components/sections/bio"
 import Layout from "../components/layout"
-import Tag from "../components/elements/tag"
-import Button from "../components/elements/button"
 import Seo from "../components/seo"
-import { OutboundLink } from 'gatsby-plugin-google-gtag';
-import "../styles/templates/project-post.scss"
+import '../styles/templates/organization-post.scss';
 
-const ProjectPostTemplate = ({
+const OrganizationPostTemplate = ({
   data: { previous, next, site, markdownRemark: post }, location 
-}) => {
+}: any) => {
   const siteTitle = site.siteMetadata?.title || 'Title';
-  const { title, description, tags, startdate, date, present, url } = post.frontmatter
+  const { title, description, startdate, date, present } = post.frontmatter
 
   return (
-    <Layout location={location} title={siteTitle} childName="project-post">
+    <Layout location={location} title={siteTitle}>
       <Seo
         title={title}
         description={description || post.excerpt}
       />
-      <Link to="/projects">&#8592; All projects</Link>
+      <Link to="/organizations">&#8592; All organizations</Link>
       <h1>{title}</h1>
-      <p className="date">{startdate ? startdate : 'Present'} - <span className="end">{present ? 'Present' : date }</span></p>
-      {tags ? tags.map((tag, idx) => {
-          return (
-            <Tag className="tag" key={idx}>{tag}</Tag>
-          )
-        }) : ''}
-      <hr />
+      <p
+        style={{
+          display: `block`,
+        }}
+      >
+        {startdate}
+      </p>
+      <p
+        style={{
+          display: `block`,
+        }}
+      >
+        { present ? 'Present' : date }
+      </p>
       <section
-        className="project-post"
+        className="organization-post"
         dangerouslySetInnerHTML={{ __html: post.html }}
         itemProp="articleBody"
       />
-      <br />
-      {!url ? '' :
-        <OutboundLink target="_blank" href={url}>
-          <Button>Click here for more details <i className="fa fa-link" aria-hidden="true"></i></Button>
-        </OutboundLink>
-      }
       <hr />
       <Bio />
 
@@ -55,14 +53,14 @@ const ProjectPostTemplate = ({
       >
         <li>
           {previous && (
-            <Link to={`/projects${previous.fields.slug}`} rel="prev">
+            <Link to={`/organizations${previous.fields.slug}`} rel="prev">
               ← {previous.frontmatter.title}
             </Link>
           )}
         </li>
         <li>
           {next && (
-            <Link to={`/projects${next.fields.slug}`} rel="next">
+            <Link to={`/organizations${next.fields.slug}`} rel="next">
               {next.frontmatter.title} →
             </Link>
           )}
@@ -72,7 +70,7 @@ const ProjectPostTemplate = ({
   )
 }
 
-export default ProjectPostTemplate
+export default OrganizationPostTemplate
 
 export const pageQuery = graphql`
   query PostBySlug(
@@ -91,13 +89,11 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        position
-        startdate(formatString: "MMM YYYY")
+        startdate(formatString: "MMMM DD, YYYY")
         present
-        date(formatString: "MMM YYYY")
+        date(formatString: "MMMM DD, YYYY")
         categories
-        tags
-        url
+        position
       }
     }
     previous: markdownRemark(id: { eq: $previousId }) {

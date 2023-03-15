@@ -1,11 +1,22 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import ProjectCard from "../elements/projectcard";
+import { ProjectType } from "../../models";
  
+type DataQuery = {
+  site: {
+    siteMetadata: {
+      title: string;
+    };
+  };
+  allMarkdownRemark: {
+    nodes: ProjectType[]
+  }
+}
 
 const ProjectsSection = () => {
 
-  const data = useStaticQuery(pageQuery);
+  const data = useStaticQuery<DataQuery>(pageQuery);
   const projects = data.allMarkdownRemark.nodes
   return (
     <div className="columns is-multiline" style={{ margin: "20px 0 40px" }}>
@@ -41,6 +52,7 @@ const pageQuery = graphql`
           present
           date(formatString: "MMM YYYY")
           title
+          description
           position
           location
           categories

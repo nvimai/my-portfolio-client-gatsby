@@ -1,47 +1,41 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import * as React from "react"
+import { Link, graphql, GatsbyNode } from "gatsby"
 
 import Bio from "../components/sections/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import '../styles/templates/organization-post.scss';
+import '../styles/templates/blog-post.scss';
 
-const OrganizationPostTemplate = ({
+const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post }, location 
-}) => {
+}: any) => {
   const siteTitle = site.siteMetadata?.title || 'Title';
-  const { title, description, startdate, date, present } = post.frontmatter
 
   return (
     <Layout location={location} title={siteTitle}>
       <Seo
-        title={title}
-        description={description || post.excerpt}
+        title={post.frontmatter.title}
+        description={post.frontmatter.description || post.excerpt}
       />
-      <Link to="/organizations">&#8592; All organizations</Link>
-      <h1>{title}</h1>
-      <p
+      <Link to="/blog">&#8592; All posts</Link>
+      <h1>{post.frontmatter.title}</h1>
+      <small style={{ fontSize: '70%' }}>Updated: {new Date(post.frontmatter.date ?? new Date()).toLocaleDateString()}</small>
+      <hr
         style={{
-          display: `block`,
+          marginBottom: `1rem`,
         }}
-      >
-        {startdate}
-      </p>
-      <p
-        style={{
-          display: `block`,
-        }}
-      >
-        { present ? 'Present' : date }
-      </p>
+      />
       <section
-        className="organization-post"
+        className="blog-post"
         dangerouslySetInnerHTML={{ __html: post.html }}
         itemProp="articleBody"
       />
-      <hr />
+      <hr
+        style={{
+          marginBottom: `1rem`,
+        }}
+      />
       <Bio />
-
       <ul
         style={{
           display: `flex`,
@@ -53,14 +47,14 @@ const OrganizationPostTemplate = ({
       >
         <li>
           {previous && (
-            <Link to={`/organizations${previous.fields.slug}`} rel="prev">
+            <Link to={`/blog${previous.fields.slug}`} rel="prev">
               ← {previous.frontmatter.title}
             </Link>
           )}
         </li>
         <li>
           {next && (
-            <Link to={`/organizations${next.fields.slug}`} rel="next">
+            <Link to={`/blog${next.fields.slug}`} rel="next">
               {next.frontmatter.title} →
             </Link>
           )}
@@ -70,10 +64,10 @@ const OrganizationPostTemplate = ({
   )
 }
 
-export default OrganizationPostTemplate
+export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query PostBySlug(
+  query BlogPostBySlug(
     $slug: String!
     $previousId: String
     $nextId: String
@@ -89,11 +83,10 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        startdate(formatString: "MMMM DD, YYYY")
-        present
-        date(formatString: "MMMM DD, YYYY")
-        categories
-        position
+        startdate
+        date
+        tags
+        description
       }
     }
     previous: markdownRemark(id: { eq: $previousId }) {

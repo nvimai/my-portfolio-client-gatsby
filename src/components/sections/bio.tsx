@@ -1,19 +1,37 @@
-import React from "react"
+import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import "font-awesome/css/font-awesome.min.css"
 import { OutboundLink } from 'gatsby-plugin-google-gtag';
 import "../../styles/components/sections/bio.scss";
 
+type BioData = {
+  avatar: {
+    publicURL: string;
+  };
+  site: {
+    siteMetadata: {
+      author: {
+        name: string;
+        summary: string;
+      }
+      social: {
+        twitter: string;
+        github: string;
+        linkedin: string;
+        instagram: string;
+        email: string;
+      };
+    };
+  };
+}
 const Bio = () => {
-  const data = useStaticQuery(pageQuery);
+  const data = useStaticQuery<BioData>(pageQuery);
   const { author, social } = data.site.siteMetadata;
   return (
     <div className="bio">
-      <div className="media" style={{ color: `unset`}}>
+      <div className="media" style={{ color: `unset` }}>
         <img
           className="media-left"
-          layout="fixed"
-          formats={["auto", "webp", "avif"]}
           src={data.avatar.publicURL}
           alt={author?.name || 'alt'}
           style={{

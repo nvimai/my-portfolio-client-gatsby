@@ -6,7 +6,34 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Button from "../components/elements/button"
 
-const Organizations = ({ data, location }) => {
+type DataQuery = {
+  site: {
+    siteMetadata: {
+      title: string;
+    };
+  };
+  allMarkdownRemark: {
+    nodes: {
+      excerpt: string;
+      fields: {
+        slug: string;
+      }
+      frontmatter: {
+        date: string;
+        title: string;
+        present: boolean;
+        description: string;
+      }
+    }[]
+  }
+}
+
+type Props = {
+  data: DataQuery;
+  location: any;
+};
+
+const Organizations = ({ data, location }: Props) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.nodes
   const title = "All organizations"

@@ -5,7 +5,33 @@ import Bio from "../components/sections/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const Blog = ({ data, location }) => {
+type DataQuery = {
+  site: {
+    siteMetadata: {
+      title: string;
+    };
+  };
+  allMarkdownRemark: {
+    nodes: {
+      excerpt: string;
+      fields: {
+        slug: string;
+      }
+      frontmatter: {
+        date: string;
+        title: string;
+        description: string;
+      }
+    }[]
+  }
+}
+
+type Props = {
+  data: DataQuery;
+  location: any;
+};
+
+const Blog = ({ data, location }: Props) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.nodes
   const title = "All posts"
@@ -67,6 +93,7 @@ export const pageQuery = graphql`
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
           title
+          description
         }
       }
     }

@@ -4,10 +4,22 @@ import { useStaticQuery, graphql } from "gatsby";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../../styles/components/sections/organizations.scss"; 
+import { OrganizationType } from "../../models";
+
+type DataQuery = {
+  site: {
+    siteMetadata: {
+      title: string;
+    };
+  };
+  allMarkdownRemark: {
+    nodes: OrganizationType[];
+  }
+}
 
 const OranizationsSlider = () => {
 
-  const data = useStaticQuery(pageQuery);
+  const data = useStaticQuery<DataQuery>(pageQuery);
   const organizations = data.allMarkdownRemark.nodes
   let slickSettings = {
     dots: true,

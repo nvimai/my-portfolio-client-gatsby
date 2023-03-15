@@ -10,7 +10,7 @@
 
 <img alt="screesnhot" src="./screenshot.png">
 
-This site is a fork of [Gatsby Starter Blog](https://github.com/gatsbyjs/gatsby-starter-blog) and [Thomas Wang's Gatsby Personal Starter Blog](https://github.com/thomaswang/gatsby-personal-starter-blog), which I can build my own portfolio using Gatsby React on front-end, GraphQL to get content from Markdown files, Netlify CMS for creating posts (JAMstack - JavaScript, APIs, & Markup).
+This site is a fork of [Gatsby Starter Blog](https://github.com/gatsbyjs/gatsby-starter-blog), which I can build my own portfolio using Gatsby React on front-end, GraphQL to get content from Markdown files, Netlify CMS for creating posts (JAMstack - JavaScript, APIs, & Markup).
 
 ## 🚀 Quick start
 
@@ -20,7 +20,7 @@ This site is a fork of [Gatsby Starter Blog](https://github.com/gatsbyjs/gatsby-
 
     ```sh
     # create a new Gatsby site using the blog starter
-    gatsby new my-portfolio https://github.com/nvimai/nvimai-gatsby-netlify
+    gatsby new my-portfolio https://github.com/nvimai/my-portfolio-client-gatsby
     ```
 
 1.  **Start developing.**
@@ -29,7 +29,7 @@ This site is a fork of [Gatsby Starter Blog](https://github.com/gatsbyjs/gatsby-
 
     ```sh
     cd my-portfolio/
-    gatsby develop
+    npm start
     ```
 
 1.  **Open the source code and start editing!**
@@ -38,7 +38,7 @@ This site is a fork of [Gatsby Starter Blog](https://github.com/gatsbyjs/gatsby-
 
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-    Open the `my-blog-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+    Open the `my-portfolio` directory in your code editor of choice and edit `src/pages/index.tsx`. Save your changes and the browser will update in real time!
 
 ## 🎓 Learning Gatsby
 
@@ -54,6 +54,6 @@ Start from [this point](https://www.gatsbyjs.org/docs/sourcing-from-netlify-cms/
 
 ## 💫 Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/nvimai/nvimai-gatsby-netlify)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/nvimai/my-portfolio-client-gatsby)
 
 <!-- AUTO-GENERATED-CONTENT:END -->
