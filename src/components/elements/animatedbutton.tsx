@@ -9,12 +9,12 @@ export default function AnimatedButton(props: any) {
 
   return (
     internal ?
-    <Link to={href || '#'} {...props}>
-      {children}
-    </Link>
-    :
-    <OutboundLink target="_blank" {...props}>
-      {children}
-    </OutboundLink>
+      <Link to={href || '#'} {...props}>
+        {children}
+      </Link>
+      :
+      <OutboundLink target="_blank" {...props}>
+        {children}
+      </OutboundLink>
   )
 }

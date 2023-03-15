@@ -49,20 +49,20 @@ const Blog = ({ data, location }: Props) => {
               style={{ boxShadow: `none`, color: 'unset' }}
               to={`/blog${fields.slug}`}
               key={fields.slug}
-              >
+            >
               <article key={fields.slug}
                 style={{
                   padding: '10px',
                   margin: '10px 0',
                   boxShadow: `0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02)`
                 }}>
-                    <h2>{title}</h2>
-                    <small style={{ fontSize:'70%' }}>{frontmatter.date}</small>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: frontmatter.description || excerpt,
-                      }}
-                  />
+                <h2>{title}</h2>
+                <small style={{ fontSize: '70%' }}>{frontmatter.date}</small>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: frontmatter.description || excerpt,
+                  }}
+                />
               </article>
             </Link>
           )

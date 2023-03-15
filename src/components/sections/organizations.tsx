@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import { useStaticQuery, graphql } from "gatsby";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../../styles/components/sections/organizations.scss"; 
+import "../../styles/components/sections/organizations.scss";
 import { OrganizationType } from "../../models";
 
 type DataQuery = {
@@ -45,7 +45,7 @@ const OranizationsSlider = () => {
   }
   return (
     <Slider className="organizations" {...slickSettings}>
-      {organizations.map(({frontmatter, fields}) => {
+      {organizations.map(({ frontmatter, fields }) => {
         const { title, image, startdate, date, position, present } = frontmatter
         return (
           <div className="organization" key={fields.slug}>
@@ -54,11 +54,11 @@ const OranizationsSlider = () => {
             </figure>
             <h5 className="name">{title}</h5>
             <h4 className="job-title">{position}</h4>
-            <p className="date">{startdate ? startdate : 'Present'} - <span className="end">{present ? 'Present' : date }</span></p>
+            <p className="date">{startdate ? startdate : 'Present'} - <span className="end">{present ? 'Present' : date}</span></p>
           </div>
         )
       })}
-      
+
     </Slider>
   );
 }

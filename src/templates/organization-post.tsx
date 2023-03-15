@@ -7,7 +7,7 @@ import Seo from "../components/seo"
 import '../styles/templates/organization-post.scss';
 
 const OrganizationPostTemplate = ({
-  data: { previous, next, site, markdownRemark: post }, location 
+  data: { previous, next, site, markdownRemark: post }, location
 }: any) => {
   const siteTitle = site.siteMetadata?.title || 'Title';
   const { title, description, startdate, date, present } = post.frontmatter
@@ -32,7 +32,7 @@ const OrganizationPostTemplate = ({
           display: `block`,
         }}
       >
-        { present ? 'Present' : date }
+        {present ? 'Present' : date}
       </p>
       <section
         className="organization-post"

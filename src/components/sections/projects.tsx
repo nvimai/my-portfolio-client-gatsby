@@ -2,7 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import ProjectCard from "../elements/projectcard";
 import { ProjectType } from "../../models";
- 
+
 type DataQuery = {
   site: {
     siteMetadata: {
@@ -22,7 +22,7 @@ const ProjectsSection = () => {
     <div className="columns is-multiline" style={{ margin: "20px 0 40px" }}>
       {
         projects.map((project, idx) => {
-          return <ProjectCard key={idx} {...project}/>
+          return <ProjectCard key={idx} {...project} />
         })
       }
     </div>

@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Link, graphql, GatsbyNode } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Bio from "../components/sections/bio"
 import Layout from "../components/layout"
@@ -7,7 +7,7 @@ import Seo from "../components/seo"
 import '../styles/templates/blog-post.scss';
 
 const BlogPostTemplate = ({
-  data: { previous, next, site, markdownRemark: post }, location 
+  data: { previous, next, site, markdownRemark: post }, location
 }: any) => {
   const siteTitle = site.siteMetadata?.title || 'Title';
 

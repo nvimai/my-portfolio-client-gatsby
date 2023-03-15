@@ -29,7 +29,7 @@ const ContactForm = () => {
     setError(false);
     setAlertMessage('');
   }
-  
+
   const onChangeGCaptcha = (token: string | null) => {
     setState((preState) => ({
       ...preState,
@@ -43,18 +43,18 @@ const ContactForm = () => {
     e.preventDefault();
     const { name, email, phone, message, gCaptcha } = state;
 
-		//Checking the captcha from Google
-		if(
-			gCaptcha === undefined ||
-			gCaptcha === '' ||
-			gCaptcha === null
-		){
+    //Checking the captcha from Google
+    if (
+      gCaptcha === undefined ||
+      gCaptcha === '' ||
+      gCaptcha === null
+    ) {
       setError(true);
       setAlertMessage('Please check the Captcha');
       return;
     }
 
-    if(gCaptcha) {
+    if (gCaptcha) {
       // If Captcha verify successfully
       console.log(name, email, phone, message, gCaptcha);
       setIsLoading(true);
@@ -66,7 +66,7 @@ const ContactForm = () => {
             if (response.data) {
               setError(false);
               setAlertMessage('Thanks for contacting me. I\'ll get back to you as soon as possible.');
-  
+
               // Reset the form
               resetForm();
             } else {
@@ -104,7 +104,7 @@ const ContactForm = () => {
 
         <div className="field">
           <div className="control has-icons-left">
-            <input className="input" name="email" type="email" required placeholder="Your Email" onChange={handleChange}/>
+            <input className="input" name="email" type="email" required placeholder="Your Email" onChange={handleChange} />
             <span className="icon is-small is-left">
               <i className="fa fa-envelope" aria-hidden="true"></i>
             </span>
@@ -117,14 +117,14 @@ const ContactForm = () => {
           </div>
         </div>
         <div className="field">
-          <ReCAPTCHA 
-            className="gRecaptcha" 
+          <ReCAPTCHA
+            className="gRecaptcha"
             sitekey={process.env.GOOGLE_RECAPTCHA_SITEKEY ?? ''}
             onChange={onChangeGCaptcha}
           />
         </div>
-        <div className={'field ' + ( alertMessage ? '' : 'is-hidden') }>
-          <p className={ 'help ' + (error ? 'is-danger' : 'is-success') }>{alertMessage}</p>
+        <div className={'field ' + (alertMessage ? '' : 'is-hidden')}>
+          <p className={'help ' + (error ? 'is-danger' : 'is-success')}>{alertMessage}</p>
         </div>
         <div className="field is-grouped is-grouped-centered">
           <div className="control">

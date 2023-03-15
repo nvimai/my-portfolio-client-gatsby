@@ -50,7 +50,7 @@ const Projects = ({ data, location }: Props) => {
       <div className="columns is-multiline" style={{ margin: "20px 0 40px" }}>
         {
           posts.map((project, idx) => {
-            return <ProjectCard key={idx} { ...project} />
+            return <ProjectCard key={idx} {...project} />
           })
         }
       </div>
