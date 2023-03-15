@@ -218,7 +218,6 @@ const config: GatsbyConfig = {
 
             return acc;
           }, {})
-
           return allPages.map(page => {
             return { ...page, ...nodeMap[page.path] }
           })
