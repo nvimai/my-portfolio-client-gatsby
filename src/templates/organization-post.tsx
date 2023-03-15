@@ -8,7 +8,7 @@ import '../styles/templates/organization-post.scss';
 
 const OrganizationPostTemplate = ({
   data: { previous, next, site, markdownRemark: post }, location 
-}) => {
+}: any) => {
   const siteTitle = site.siteMetadata?.title || 'Title';
   const { title, description, startdate, date, present } = post.frontmatter
 

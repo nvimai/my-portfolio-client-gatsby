@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import OranizationsSlider from "../components/sections/organizations"
@@ -7,8 +7,13 @@ import ProjectsSection from "../components/sections/projects"
 import ContactForm from "../components/forms/contactform"
 import AnimatedButton from "../components/elements/animatedbutton"
 import "../styles/pages/index.scss"
+import { PageProps } from "gatsby"
 
-const IndexPage = ({ location }) => {
+type Props = {
+  location: string;
+}
+
+const IndexPage = ({ location }: PageProps<Props>) => {
   const siteTitle = "Gatsby Starter Personal Website";
 
   return (

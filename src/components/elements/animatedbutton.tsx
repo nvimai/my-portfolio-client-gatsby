@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import '../../styles/components/elements/button.scss'
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 
-export default function AnimatedButton(props) {
+export default function AnimatedButton(props: any) {
 
   const { internal, href, children } = props;
 

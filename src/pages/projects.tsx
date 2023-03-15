@@ -5,7 +5,40 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import ProjectCard from "../components/elements/projectcard"
 
-const Projects = ({ data, location }) => {
+type DataQuery = {
+  site: {
+    siteMetadata: {
+      title: string;
+    };
+  };
+  allMarkdownRemark: {
+    nodes: {
+      excerpt: string;
+      fields: {
+        slug: string;
+      }
+      frontmatter: {
+        date: string;
+        title: string;
+        present: boolean;
+        description: string;
+        startdate: string;
+        position: string;
+        location: string;
+        categories: string[];
+        tags: string[];
+        image: string;
+      }
+    }[]
+  }
+}
+
+type Props = {
+  data: DataQuery;
+  location: any;
+};
+
+const Projects = ({ data, location }: Props) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.nodes
   const title = "All projects"

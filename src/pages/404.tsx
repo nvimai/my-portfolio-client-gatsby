@@ -4,13 +4,26 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const NotFoundPage = ({ data, location }) => {
+type DataQuery = {
+  site: {
+    siteMetadata: {
+      title: string;
+    };
+  };
+}
+
+type Props = {
+  data: DataQuery;
+  location: any;
+};
+
+const NotFoundPage = ({ data, location }: Props) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="404: Not Found" />
-      <h1>Not Found</h1>
+      <h1>Page Not Found</h1>
       <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
     </Layout>
   )

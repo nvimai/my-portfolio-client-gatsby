@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from "gatsby";
 import '../../styles/components/elements/projectcard.scss';
+import { ProjectType } from '../../models';
 
-const ProjectCard = (props) => {
+const ProjectCard = (props: ProjectType) => {
   const { title, position, startdate, date, present, tags, image } = props.frontmatter;
   const { slug } = props.fields;
   return (

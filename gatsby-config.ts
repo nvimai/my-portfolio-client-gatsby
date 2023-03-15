@@ -1,3 +1,5 @@
+import { GatsbyConfig } from 'gatsby';
+
 /**
  * Configure your Gatsby site with this file.
  *
@@ -7,10 +9,9 @@ require("dotenv").config({
   path: `.env`,
 })
 
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
-module.exports = {
+const siteUrl = process.env.URL || `https://nvimai.com`;
+
+const config: GatsbyConfig = {
   siteMetadata: {
     title: `Nvi Mai Portfolio`,
     author: {
@@ -31,7 +32,7 @@ module.exports = {
       objectives: ['Working on Front-end, Back-end, Full-stack developer those which are programming languages and frameworks: C#, ASP.net, PHP, JavaScript, SQL, WordPress, MongoDB, Express.js, React, React Native, VueJS, AngularJS, Node.JS and beyond.'],
     },
     description: `My personal portfolio website build on Gatsby ReactJS and Netlify.`,
-    siteUrl: `https://nvimai.com`,
+    siteUrl: siteUrl,
     social: {
       twitter: `nvimai`,
       github: `nvimai`,
@@ -125,7 +126,27 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
+            serialize: ({ query: { site, allMarkdownRemark } }: {
+              query: {
+                site: {
+                  siteMetadata: {
+                    siteUrl: string
+                  }
+                },
+                allMarkdownRemark: {
+                  nodes: {
+                    excerpt: string;
+                    html: string;
+                    fields: {
+                      slug: string;
+                    };
+                    frontmatter: {
+                      date: Date;
+                    };
+                  }[]
+                }
+              }
+            }) => {
               return allMarkdownRemark.nodes.map(node => {
                 return Object.assign({}, node.frontmatter, {
                   description: node.excerpt,
@@ -158,6 +179,82 @@ module.exports = {
             title: "Nvis Portfolio RSS Feed",
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        query: `
+        {
+          allSitePage {
+            nodes {
+              path
+            }
+          }
+  				allMarkdownRemark(
+            filter: { frontmatter: { categories: { in: ["blog", "projects", "organizations"] }}},
+          ) {
+            nodes {
+              fields {
+                slug
+              }
+              frontmatter {
+                categories
+                date
+                startdate
+              }
+            }
+          }
+        }
+      `,
+        resolveSiteUrl: () => siteUrl,
+        resolvePages: ({
+          allSitePage: { nodes: allPages },
+          allMarkdownRemark: { nodes: allNodes },
+        }: {
+          allSitePage: {
+            nodes: {
+              path: string;
+            }[];
+          }
+          allMarkdownRemark: {
+            nodes: {
+              html: string;
+              fields: {
+                slug: string;
+              };
+              frontmatter: {
+                date: Date;
+                startdate: Date;
+                categories: string[];
+              };
+            }[]
+          }
+        }) => {
+          const nodeMap = allNodes.reduce((acc: {
+            [key: string]: {}
+          }, node) => {
+            const { fields: { slug }, frontmatter: { categories } } = node;
+            acc[`/${categories[0]}${slug}`] = node.frontmatter;
+
+            return acc;
+          }, {})
+
+          return allPages.map(page => {
+            return { ...page, ...nodeMap[page.path] }
+          })
+        },
+        serialize: ({ path, date, startdate }: {
+          path: string;
+          date: Date;
+          startdate: Date;
+        }) => {
+          console.log(date, startdate)
+          return {
+            url: path,
+            lastmod: date || new Date(),
+          }
+        },
       },
     },
     {
@@ -210,3 +307,5 @@ module.exports = {
     },
   ],
 }
+
+export default config;

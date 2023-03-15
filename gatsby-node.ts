@@ -3,18 +3,18 @@
  *
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
  */
-
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
-
+import { createFilePath } from 'gatsby-source-filesystem';
+import { GatsbyNode } from 'gatsby';
+import { resolve } from 'path';
 // Define the template for blog post
-const projectPost = path.resolve(`./src/templates/project-post.jsx`)
-const organizationPost = path.resolve(`./src/templates/organization-post.jsx`)
-const blogPost = path.resolve(`./src/templates/blog-post.jsx`)
+
+const projectPost = resolve(`./src/templates/project-post.tsx`)
+const organizationPost = resolve(`./src/templates/organization-post.tsx`)
+const blogPost = resolve(`./src/templates/blog-post.tsx`)
 
 const categoryVariables = ['blog', 'organizations', 'projects'];
-const components = (type) => {
-  switch(type) {
+const components = (type: string): string => {
+  switch (type) {
     case categoryVariables[0]: return blogPost
     case categoryVariables[1]: return organizationPost
     case categoryVariables[2]: return projectPost
@@ -22,18 +22,37 @@ const components = (type) => {
   }
 }
 
-/**
- * @type {import('gatsby').GatsbyNode['createPages']}
- */
-exports.createPages = async ({ graphql, actions, reporter }) => {
+type GraphQLResultType = {
+  allMarkdownRemark: {
+    nodes: {
+      id: string,
+      fields: { slug?: string },
+      frontmatter: {
+        title: string,
+        categories: string[],
+        date: Date
+      }
+    }[]
+  }
+}
+
+export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-  const results = {};
+  const results: {
+    [key: string]: {
+      errors?: any,
+      data?: GraphQLResultType,
+    }
+  } = {};
 
   await Promise.all(
     categoryVariables.map(async (type) => {
       // Get all markdown blog posts sorted by date
-      const result = await graphql(`
+      const result: {
+        errors?: any,
+        data?: GraphQLResultType,
+      } = await graphql(`
         query ($type: String) {
           allMarkdownRemark(
             sort: { frontmatter: { date: DESC } },
@@ -67,9 +86,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   );
 
   categoryVariables.forEach((type) => {
-    const posts = results[type].data.allMarkdownRemark.nodes;
-      
-    posts.forEach((post, index) => {
+    const posts = results[type].data?.allMarkdownRemark.nodes;
+
+    posts?.forEach((post, index) => {
       const previousId = index === 0 ? null : posts[index - 1].id
       const nextId = index === posts.length - 1 ? null : posts[index + 1].id
       createPage({
@@ -87,10 +106,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   });
 }
 
-/**
- * @type {import('gatsby').GatsbyNode['onCreateNode']}
- */
-exports.onCreateNode = ({ node, actions, getNode }) => {
+export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
@@ -104,10 +120,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-/**
- * @type {import('gatsby').GatsbyNode['createSchemaCustomization']}
- */
-exports.createSchemaCustomization = ({ actions }) => {
+export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = ({ actions }) => {
   const { createTypes } = actions
 
   // Explicitly define the siteMetadata {} object

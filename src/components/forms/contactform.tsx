@@ -6,38 +6,40 @@ import "font-awesome/css/font-awesome.min.css";
 import "../../styles/components/forms/contactform.scss";
 import ReCAPTCHA from "react-google-recaptcha";
 
+const initFormData = {
+  name: '',
+  email: '',
+  phone: '',
+  message: '',
+  gCaptcha: '',
+};
+
 const ContactForm = () => {
-  const [state, setState] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-    gCaptcha: '',
-  });
+  const [state, setState] = useState(initFormData);
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     setState((preState) => ({
       ...preState,
-      [e.target.name]: e.target.value,
+      [e.target?.name]: e.target?.value,
     }));
     setError(false);
     setAlertMessage('');
   }
   
-  const onChangeGCaptcha = (value) => {
+  const onChangeGCaptcha = (token: string | null) => {
     setState((preState) => ({
       ...preState,
-      gCaptcha: value,
+      gCaptcha: token ?? '',
     }));
     setError(false);
     setAlertMessage('');
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: Event) => {
     e.preventDefault();
     const { name, email, phone, message, gCaptcha } = state;
 
@@ -83,7 +85,7 @@ const ContactForm = () => {
   }
 
   const resetForm = () => {
-    document.getElementById('contact-form').reset();
+    setState(initFormData);
   }
 
   return (
@@ -117,7 +119,7 @@ const ContactForm = () => {
         <div className="field">
           <ReCAPTCHA 
             className="gRecaptcha" 
-            sitekey={process.env.GOOGLE_RECAPTCHA_SITEKEY}
+            sitekey={process.env.GOOGLE_RECAPTCHA_SITEKEY ?? ''}
             onChange={onChangeGCaptcha}
           />
         </div>
