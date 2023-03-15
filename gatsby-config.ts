@@ -10,6 +10,16 @@ require("dotenv").config({
 })
 
 const siteUrl = process.env.URL || `https://nvimai.com`;
+const defaultMinifyOptions = {
+  collapseWhitespace: true,
+  minifyCSS: true,
+  minifyJS: true,
+  removeComments: true,
+  removeEmptyAttributes: true,
+  removeScriptTypeAttributes: true,
+  removeStyleLinkTypeAttributes: true,
+  processConditionalComments: true
+}
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -264,6 +274,10 @@ const config: GatsbyConfig = {
           delayOnRouteUpdate: 0,
         },
       },
+    },
+    {
+      resolve: `gatsby-plugin-minify`,
+      options: defaultMinifyOptions,
     },
     `gatsby-plugin-offline`,
     {
