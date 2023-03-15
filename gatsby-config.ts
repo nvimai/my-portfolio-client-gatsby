@@ -265,17 +265,23 @@ const config: GatsbyConfig = {
         },
       },
     },
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Nvi Mai Portfolio`,
         short_name: `Nvis Portfolio`,
+        description: `Nvis personal portfolio website build on Gatsby ReactJS and Netlify.`,
+        lang: `en`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#2E2E2E`,
         display: `minimal-ui`,
         // edit below
         icon: `static/images/nvi-emoji.png`,
+        icon_options: {
+          purpose: `any maskable`,
+        },
       },
     },
   ],
