@@ -1,7 +1,7 @@
 ---
 title: How to become a software developer from zero
-startdate: "2019-05-01T00:00:00.000Z"
-date:
+startdate: "2023-03-01T00:00:00.000Z"
+date: "2023-03-10T00:00:00.000Z"
 categories: ["blog"]
 tags: ["Software Developer", "from zero to hero"]
 ---

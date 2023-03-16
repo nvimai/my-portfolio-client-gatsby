@@ -1,7 +1,7 @@
 ---
 title: What is User Experience (UX) and why is it important for website design?
 startdate: "2019-03-04T23:46:37.121Z"
-date:
+date: "2023-03-10T00:00:00.000Z"
 categories: ["blog","websites"]
 tags: ["User Experience", "UX", "website"]
 ---
