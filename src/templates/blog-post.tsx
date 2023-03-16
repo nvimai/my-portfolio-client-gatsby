@@ -19,7 +19,7 @@ const BlogPostTemplate = ({
       />
       <Link to="/blog">&#8592; All posts</Link>
       <h1>{post.frontmatter.title}</h1>
-      <small style={{ fontSize: '70%' }}>Updated: {new Date(post.frontmatter.date ?? new Date()).toLocaleDateString()}</small>
+      <small style={{ fontSize: '70%' }}>Updated: {new Date(post.frontmatter.date ?? new Date()).toDateString()}</small>
       <hr
         style={{
           marginBottom: `1rem`,
