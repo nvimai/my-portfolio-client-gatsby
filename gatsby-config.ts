@@ -228,21 +228,11 @@ const config: GatsbyConfig = {
 
             return acc;
           }, {})
-<<<<<<< HEAD:gatsby-config.ts
           return allPages.map(page => {
-=======
-
-          return allPages.map(page => {
-            console.log(page)
->>>>>>> 85ef144c06a31d6f9f442b67883fb57c0939ca3a:gatsby-config.js
             return { ...page, ...nodeMap[page.path] }
           })
         },
         serialize: ({ path, date, startdate }) => {
-<<<<<<< HEAD:gatsby-config.ts
-=======
-          console.log(date, startdate)
->>>>>>> 85ef144c06a31d6f9f442b67883fb57c0939ca3a:gatsby-config.js
           return {
             url: path,
             lastmod: date || new Date(),
