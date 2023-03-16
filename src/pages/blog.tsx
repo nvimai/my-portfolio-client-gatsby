@@ -35,10 +35,11 @@ const Blog = ({ data, location }: Props) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.nodes
   const title = "All posts"
+  const description = "This is the place for the blog where I can share my works, experiences, life and thoughts"
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title={title} />
+      <Seo title={title} description={description} />
       <h1>{title}</h1>
       <Bio />
       <div style={{ margin: "20px 0 40px" }}>

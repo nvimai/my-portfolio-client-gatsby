@@ -37,10 +37,11 @@ const Organizations = ({ data, location }: Props) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.nodes
   const title = "All organizations"
+  const description = "The organizations I have been working for and joined since I started as a developer"
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title={title} />
+      <Seo title={title} description={description} />
       <Bio />
       <div style={{ margin: "20px 0 40px" }}>
         {posts.map(({ frontmatter, fields, excerpt }) => {
