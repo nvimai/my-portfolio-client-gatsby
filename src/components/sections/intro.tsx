@@ -25,7 +25,6 @@ const Intro = () => {
         <div className="profile column is-one-third-desktop">
           <img
             className="profile"
-            formats={["auto", "webp", "avif"]}
             src={data.avatar.publicURL}
             alt={name || 'alt'}
             style={{
@@ -62,7 +61,7 @@ const Intro = () => {
       </div>
       <div className="objectives">
         {
-          objectives.map((value, index) => {
+          objectives.map((value: string, index: number) => {
             return (
               <p className="objective" key={index}>
                 {value}

@@ -2,11 +2,15 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
-// Note: You can change "images" to whatever you'd like.
+type Props = {
+  filename: string;
+  imgStyle?: object;
+  alt: string;
+}
 
-const Image = (props) => {
+const Image = (props: Props) => {
   const data = useStaticQuery(query);
-  const image = data.images.edges.find(n => {
+  const image = data.images.edges.find((n: any) => {
     return n.node.relativePath.includes(props.filename);
   });
 

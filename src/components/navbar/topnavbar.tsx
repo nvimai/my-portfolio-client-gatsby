@@ -8,25 +8,25 @@ const TopNavBar = () => {
   const [menuOpened, setMenuOpened] = useState(false);
 
   // componentDidMount = () => {
-	// 	window.addEventListener('scroll', this.handleScroll);
+  // 	window.addEventListener('scroll', this.handleScroll);
   // }
-  
-	// componentWillUnmount = () => {
-	// 	window.removeEventListener('scroll', this.handleScroll);
+
+  // componentWillUnmount = () => {
+  // 	window.removeEventListener('scroll', this.handleScroll);
   // }
 
   const toggleMenu = () => {
-		setMenuOpened((preState) => !preState);
-	};
-  
+    setMenuOpened((preState) => !preState);
+  };
+
   // handleScroll = (e) => {
-	// 	let maxTop = -500;
-	// 	let scrollTop = e.srcElement.body.getBoundingClientRect().top;
-	// 	this.setState({
-	// 		alphaColor: scrollTop < maxTop ? 1 : scrollTop * (1.0) / maxTop
-	// 	});
-	// }
-  
+  // 	let maxTop = -500;
+  // 	let scrollTop = e.srcElement.body.getBoundingClientRect().top;
+  // 	this.setState({
+  // 		alphaColor: scrollTop < maxTop ? 1 : scrollTop * (1.0) / maxTop
+  // 	});
+  // }
+
 
   const data = useStaticQuery(pageQuery);
   const { title, social } = data.site.siteMetadata
@@ -35,9 +35,9 @@ const TopNavBar = () => {
       className={`navbar is-fixed-top ${menuOpened ? 'is-active' : ''}`}
       role="navigation"
       aria-label="main navigation"
-      // style={{
-      //   backgroundColor: `rgba(46, 46, 46, ${alphaColor})`
-      // }}
+    // style={{
+    //   backgroundColor: `rgba(46, 46, 46, ${alphaColor})`
+    // }}
     >
       <div className="navbar-brand">
         <Link className="navbar-item" to="/">
@@ -51,9 +51,8 @@ const TopNavBar = () => {
             }}
           />
         </Link>
-        <button onClick={toggleMenu} className={`navbar-burger burger ${
-        menuOpened ? 'is-active' : ''
-        }`}>
+        <button onClick={toggleMenu} className={`navbar-burger burger ${menuOpened ? 'is-active' : ''
+          }`}>
           <span></span>
           <span></span>
           <span></span>
@@ -63,16 +62,16 @@ const TopNavBar = () => {
       <div id="navbarExampleTransparentExample" className={`navbar-menu ${menuOpened ? 'is-active' : ''}`}>
         <div className="navbar-start">
           <Link className="navbar-item" to="/">
-              Home
+            Home
           </Link>
           <Link className="navbar-item" to="/#contact">
-              Contact
+            Contact
           </Link>
           <Link className="navbar-item" to="/projects">
-              Projects
+            Projects
           </Link>
           <Link className="navbar-item" to="/blog">
-              Blog
+            Blog
           </Link>
         </div>
 

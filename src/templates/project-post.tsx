@@ -10,8 +10,8 @@ import { OutboundLink } from 'gatsby-plugin-google-gtag';
 import "../styles/templates/project-post.scss"
 
 const ProjectPostTemplate = ({
-  data: { previous, next, site, markdownRemark: post }, location 
-}) => {
+  data: { previous, next, site, markdownRemark: post }, location
+}: any) => {
   const siteTitle = site.siteMetadata?.title || 'Title';
   const { title, description, tags, startdate, date, present, url } = post.frontmatter
 
@@ -23,12 +23,12 @@ const ProjectPostTemplate = ({
       />
       <Link to="/projects">&#8592; All projects</Link>
       <h1>{title}</h1>
-      <p className="date">{startdate ? startdate : 'Present'} - <span className="end">{present ? 'Present' : date }</span></p>
-      {tags ? tags.map((tag, idx) => {
-          return (
-            <Tag className="tag" key={idx}>{tag}</Tag>
-          )
-        }) : ''}
+      <p className="date">{startdate ? startdate : 'Present'} - <span className="end">{present ? 'Present' : date}</span></p>
+      {tags ? tags.map((tag: string, idx: number) => {
+        return (
+          <Tag className="tag" key={idx}>{tag}</Tag>
+        )
+      }) : ''}
       <hr />
       <section
         className="project-post"

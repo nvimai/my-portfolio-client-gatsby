@@ -1,3 +1,5 @@
+import { GatsbyConfig } from 'gatsby';
+
 /**
  * Configure your Gatsby site with this file.
  *
@@ -7,12 +9,19 @@ require("dotenv").config({
   path: `.env`,
 })
 
-const siteUrl = process.env.URL || `https://nvimai.com`
+const siteUrl = process.env.URL || `https://nvimai.com`;
+const defaultMinifyOptions = {
+  collapseWhitespace: true,
+  minifyCSS: true,
+  minifyJS: true,
+  removeComments: true,
+  removeEmptyAttributes: true,
+  removeScriptTypeAttributes: true,
+  removeStyleLinkTypeAttributes: true,
+  processConditionalComments: true
+}
 
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
-module.exports = {
+const config: GatsbyConfig = {
   siteMetadata: {
     title: `Nvi Mai Portfolio`,
     author: {
@@ -127,7 +136,27 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
+            serialize: ({ query: { site, allMarkdownRemark } }: {
+              query: {
+                site: {
+                  siteMetadata: {
+                    siteUrl: string
+                  }
+                },
+                allMarkdownRemark: {
+                  nodes: {
+                    excerpt: string;
+                    html: string;
+                    fields: {
+                      slug: string;
+                    };
+                    frontmatter: {
+                      date: Date;
+                    };
+                  }[]
+                }
+              }
+            }) => {
               return allMarkdownRemark.nodes.map(node => {
                 return Object.assign({}, node.frontmatter, {
                   description: node.excerpt,
@@ -199,14 +228,11 @@ module.exports = {
 
             return acc;
           }, {})
-
           return allPages.map(page => {
-            console.log(page)
             return { ...page, ...nodeMap[page.path] }
           })
         },
         serialize: ({ path, date, startdate }) => {
-          console.log(date, startdate)
           return {
             url: path,
             lastmod: date || new Date(),
@@ -250,17 +276,29 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-minify`,
+      options: defaultMinifyOptions,
+    },
+    `gatsby-plugin-offline`,
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Nvi Mai Portfolio`,
         short_name: `Nvis Portfolio`,
+        description: `Nvis personal portfolio website build on Gatsby ReactJS and Netlify.`,
+        lang: `en`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#2E2E2E`,
         display: `minimal-ui`,
         // edit below
         icon: `static/images/nvi-emoji.png`,
+        icon_options: {
+          purpose: `any maskable`,
+        },
       },
     },
   ],
 }
+
+export default config;

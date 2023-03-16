@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from "gatsby";
 import '../../styles/components/elements/projectcard.scss';
+import { ProjectType } from '../../models';
 
-const ProjectCard = (props) => {
+const ProjectCard = (props: ProjectType) => {
   const { title, position, startdate, date, present, tags, image } = props.frontmatter;
   const { slug } = props.fields;
   return (
@@ -16,7 +17,7 @@ const ProjectCard = (props) => {
         <div className="card-content">
           <Link
             style={{ boxShadow: `none` }}
-            to={`/projects${slug?slug:''}`}
+            to={`/projects${slug ? slug : ''}`}
           >
             <h5 className="name">{title}</h5>
             <h4 className="job-title">{position}</h4>
@@ -28,7 +29,7 @@ const ProjectCard = (props) => {
           }) : ''}
         </div>
         <div className="card-footer">
-          <p className="date">{startdate ? startdate : 'Present'} - <span className="end">{present ? 'Present' : date }</span></p>
+          <p className="date">{startdate ? startdate : 'Present'} - <span className="end">{present ? 'Present' : date}</span></p>
         </div>
       </div>
     </div>

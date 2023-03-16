@@ -20,7 +20,7 @@ const FooterNavBar = () => {
   const { title, author, social } = data.site.siteMetadata
   return (
     <nav className="footer">
-      <main className="columns"> 
+      <main className="columns">
         <div className="brand column">
           <Link to="/">
             <img
