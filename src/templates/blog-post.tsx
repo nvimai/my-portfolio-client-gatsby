@@ -19,7 +19,7 @@ const BlogPostTemplate = ({
       />
       <Link to="/blog">&#8592; All posts</Link>
       <h1>{post.frontmatter.title}</h1>
-      <small style={{ fontSize: '70%' }}>Updated: {new Date(post.frontmatter.date ?? new Date()).toDateString()}</small>
+      <small style={{ fontSize: '70%' }}>Updated: {post.frontmatter.date}</small>
       <hr
         style={{
           marginBottom: `1rem`,
@@ -83,8 +83,8 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        startdate
-        date
+        startdate(formatString: "MMMM DD, YYYY")
+        date(formatString: "MMMM DD, YYYY")
         tags
         description
       }
