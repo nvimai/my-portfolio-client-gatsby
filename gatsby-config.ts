@@ -248,6 +248,7 @@ const config: GatsbyConfig = {
           "GOOGLE_ANALYTICS_ID",
           "GOOGLE_RECAPTCHA_SITEKEY",
           "API_ENDPOINT",
+          "API_CODE",
         ]
       },
     },
