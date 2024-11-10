@@ -60,7 +60,13 @@ const ContactForm = () => {
       setIsLoading(true);
       setTimeout(() => {
         axios
-          .post(`${process.env.API_ENDPOINT}/save-contact?code=${process.env.API_CODE}`, { name, email, message, captchaToken: gCaptcha }) // Post API call to send email
+          .post(`${process.env.API_ENDPOINT}/save-contact?code=${process.env.API_CODE}`, {
+            name, email, message, captchaToken: gCaptcha
+          }, {
+            headers: {
+              'Content-Type': 'application/json',
+            }
+          }) // Post API call to send email
           .then((response) => {
             console.log(response);
             if (response.data) {
