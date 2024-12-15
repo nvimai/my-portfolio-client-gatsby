@@ -5,6 +5,7 @@ import AnimatedButton from "../elements/animatedbutton";
 import "font-awesome/css/font-awesome.min.css";
 import "../../styles/components/forms/contactform.scss";
 import ReCAPTCHA from "react-google-recaptcha";
+import { encryptData } from "../../helpers/jwks.helper";
 
 const initFormData = {
   name: '',
@@ -56,12 +57,13 @@ const ContactForm = () => {
 
     if (gCaptcha) {
       // If Captcha verify successfully
-      console.log(name, email, phone, message, gCaptcha);
+      const encryptedEmail = encryptData(email, process.env.PUBLIC_KEY_BASE64 ?? '');
+      console.log(name, encryptedEmail, phone, message, gCaptcha);
       setIsLoading(true);
       setTimeout(() => {
         axios
           .post(`${process.env.API_ENDPOINT}/save-contact?code=${process.env.API_CODE}`, {
-            name, email, message, captchaToken: gCaptcha
+            name, email: encryptedEmail, message, captchaToken: gCaptcha
           }, {
             headers: {
               'Content-Type': 'application/json',
@@ -71,7 +73,7 @@ const ContactForm = () => {
             console.log(response);
             if (response.data) {
               setError(false);
-              setAlertMessage('Thanks for contacting me. I\'ll get back to you as soon as possible.');
+              setAlertMessage('Thanks for contacting me. Your contact information was encrypted and sent safely. I\'ll get back to you as soon as possible.');
 
               // Reset the form
               resetForm();

@@ -249,6 +249,7 @@ const config: GatsbyConfig = {
           "GOOGLE_RECAPTCHA_SITEKEY",
           "API_ENDPOINT",
           "API_CODE",
+          "PUBLIC_KEY_BASE64",
         ]
       },
     },
