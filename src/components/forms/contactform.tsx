@@ -57,13 +57,15 @@ const ContactForm = () => {
 
     if (gCaptcha) {
       // If Captcha verify successfully
+      const encryptedName = encryptData(name, process.env.PUBLIC_KEY_BASE64 ?? '');
       const encryptedEmail = encryptData(email, process.env.PUBLIC_KEY_BASE64 ?? '');
-      console.log(name, encryptedEmail, phone, message, gCaptcha);
+      const encryptedMessage = encryptData(message, process.env.PUBLIC_KEY_BASE64 ?? '');
+
       setIsLoading(true);
       setTimeout(() => {
         axios
           .post(`${process.env.API_ENDPOINT}/save-contact?code=${process.env.API_CODE}`, {
-            name, email: encryptedEmail, message, captchaToken: gCaptcha
+            name: encryptedName, email: encryptedEmail, message: encryptedMessage, captchaToken: gCaptcha
           }, {
             headers: {
               'Content-Type': 'application/json',
